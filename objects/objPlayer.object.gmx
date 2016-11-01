@@ -59,14 +59,7 @@ x += horAxis * spd;
 y += verAxis * spd;
 
 // check stage bounds
-if(bbox_top &lt; 0)
-    y = sprite_yoffset;
-if(bbox_bottom &gt; room_height)
-    y = room_height - (sprite_height - sprite_yoffset);
-if(bbox_left &lt; 0)
-    x = sprite_xoffset;
-if(bbox_right &gt; room_width)
-    x = room_width - (sprite_width - sprite_xoffset);
+scrCheckStageBounds();
 </string>
           </argument>
         </arguments>

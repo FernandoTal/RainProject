@@ -25,7 +25,84 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// TODO
+            <string>/// Set bullet spawn timer
+
+spawnDelay = 10;
+
+xspawn = 0;
+yspawn = 30;
+
+xvel = 5;
+yvel = 0;
+
+alarm[0] = spawnDelay;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Bullet timer
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Move and shoot at player
+
+x += xvel;
+if(bbox_left &lt; 0 || bbox_right &gt; room_width)
+    xvel *= -1;
+
+scpGetPlayerInput();
+
+if(alarm[0] &lt; 0)
+{
+    if(instance_exists(objPlayer))
+    {
+        with(instance_create(xspawn + x, yspawn + y, objBullet))
+        {
+            var distance = point_distance(objPlayer.x, objPlayer.y, x, y);
+            xdir = (objPlayer.x - x) / distance;
+            ydir = (objPlayer.y - y) / distance;
+        }
+    }
+    
+    alarm[0] = spawnDelay;
+}
 </string>
           </argument>
         </arguments>

@@ -15,6 +15,7 @@
   <scripts name="scripts">
     <script>scripts\scpGetPlayerInput.gml</script>
     <script>scripts\scrCheckStageBounds.gml</script>
+    <script>scripts\scpCreateBulletsAt.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\objPlayer</object>

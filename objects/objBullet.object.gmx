@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// Set speed
 
-spd = 15;
+spd = 3;
 
 xdir = 0;
 ydir = 1;

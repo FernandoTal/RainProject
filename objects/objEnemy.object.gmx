@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// Set bullet spawn timer
 
-spawnDelay = 10;
+spawnDelay = 30;
 
 xspawn = 0;
 yspawn = 30;
@@ -93,12 +93,8 @@ if(alarm[0] &lt; 0)
 {
     if(instance_exists(objPlayer))
     {
-        with(instance_create(xspawn + x, yspawn + y, objBullet))
-        {
-            var distance = point_distance(objPlayer.x, objPlayer.y, x, y);
-            xdir = (objPlayer.x - x) / distance;
-            ydir = (objPlayer.y - y) / distance;
-        }
+        var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
+        scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 3);
     }
     
     alarm[0] = spawnDelay;

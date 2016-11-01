@@ -10,12 +10,13 @@
     <sprite>sprites\sprEnemy</sprite>
     <sprite>sprites\sprBullet</sprite>
     <sprite>sprites\sprBullSpring</sprite>
+    <sprite>sprites\sprUmbrella</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scpGetPlayerInput.gml</script>
-    <script>scripts\scrCheckStageBounds.gml</script>
+    <script>scripts\scpCheckStageBounds.gml</script>
     <script>scripts\scpCreateBulletsAt.gml</script>
   </scripts>
   <objects name="objects">
@@ -23,6 +24,7 @@
     <object>objects\objEnemy</object>
     <object>objects\objBullet</object>
     <object>objects\objBullSpring</object>
+    <object>objects\objUmbrella</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>

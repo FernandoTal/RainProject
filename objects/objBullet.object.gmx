@@ -31,6 +31,8 @@ spd = 3;
 
 xdir = 0;
 ydir = 1;
+
+reflected = 0;
 </string>
           </argument>
         </arguments>

@@ -9,7 +9,6 @@
     <sprite>sprites\sprPlayer</sprite>
     <sprite>sprites\sprEnemy</sprite>
     <sprite>sprites\sprBullet</sprite>
-    <sprite>sprites\sprNull</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -20,7 +19,6 @@
     <object>objects\objPlayer</object>
     <object>objects\objEnemy</object>
     <object>objects\objBullet</object>
-    <object>objects\objCollidable</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>

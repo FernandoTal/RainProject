@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>objCollidable</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -27,10 +27,8 @@
             <kind>1</kind>
             <string>/// set player variables
 
-vel = 10;
+spd = 10;
 
-drawbanana = false;
-banana = 0;
 </string>
           </argument>
         </arguments>
@@ -53,71 +51,22 @@ banana = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// input
+            <string>/// input and movement
 
 scpGetPlayerInput();
 
-x += horAxis * vel;
-y += verAxis * vel;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="objCollidable">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// handle wall collision
+x += horAxis * spd;
+y += verAxis * spd;
 
-drawbanana = true;
-banana = other.object_index;
-
-//x -= horAxis * vel;
-//y -= verAxis * vel;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>
-draw_sprite(sprite_index, image_index, x, y);
-
-draw_text(10, 10, "Last collision:");
-if(drawbanana)
-{
-    draw_text(130, 10, object_get_name(banana));
-}
+// check stage bounds
+if(bbox_top &lt; 0)
+    y = sprite_yoffset;
+if(bbox_bottom &gt; room_height)
+    y = room_height - (sprite_height - sprite_yoffset);
+if(bbox_left &lt; 0)
+    x = sprite_xoffset;
+if(bbox_right &gt; room_width)
+    x = room_width - (sprite_width - sprite_xoffset);
 </string>
           </argument>
         </arguments>

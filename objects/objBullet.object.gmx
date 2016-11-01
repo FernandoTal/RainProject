@@ -31,7 +31,7 @@
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="objCollidable">
+    <event eventtype="4" ename="&lt;undefined&gt;">
       <action>
         <libid>1</libid>
         <id>603</id>

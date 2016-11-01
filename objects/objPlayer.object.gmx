@@ -65,7 +65,6 @@ scpGetPlayerInput();
 
 x += horAxis * spd * (1-focus*0.7);
 y += verAxis * spd * (1-focus*0.7);
-<<<<<<< HEAD
 
 if(reflectPressed)
 {
@@ -83,8 +82,23 @@ else
         y = other.umbrellaSafeY;
     }
 }
-=======
->>>>>>> new projectile with acceleration, focus system :D
+
+if(reflectPressed)
+{
+    with(objUmbrella)
+    {
+        x = other.x;
+        y = other.y - other.sprite_yoffset - 2;
+    }
+}
+else
+{
+    with(objUmbrella)
+    {
+        x = other.umbrellaSafeX;
+        y = other.umbrellaSafeY;
+    }
+}
 
 // check stage bounds
 scpCheckStageBounds();

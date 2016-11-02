@@ -1,10 +1,11 @@
-/// scpCreateBulletsAt(x, y, direction, numBullets, [type])
+/// scpCreateBulletsAt(x, y, direction, numBullets, speed,[type])
 
 var xspawn =        argument[0];
 var yspawn =        argument[1];
 var dir =           argument[2];
 var numBullets =    argument[3];
-var type =  argument[4];
+var bspd = argument[4];
+var type =  argument[5];
 
 var flip = 1;
 var delta = 0;
@@ -24,6 +25,7 @@ repeat(numBullets)
     {
         xdir = lengthdir_x(1, dir);
         ydir = lengthdir_y(1, dir);
+        spd = bspd
     }
 }
 

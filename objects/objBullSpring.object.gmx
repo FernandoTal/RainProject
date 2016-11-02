@@ -27,8 +27,7 @@
             <kind>1</kind>
             <string>/// Set speed
 
-spd = 10;
-accel = -0.07;
+accel = -0.15;
 
 xdir = 0;
 ydir = 1;
@@ -59,7 +58,7 @@ ydir = 1;
 x += xdir * spd;
 y += ydir * spd;
 
-if (spd &gt; 0)
+if (spd &gt; 1)
 {
     spd = spd + accel;
 }

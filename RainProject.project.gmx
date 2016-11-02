@@ -10,6 +10,8 @@
     <sprite>sprites\sprBullet</sprite>
     <sprite>sprites\sprBullSpring</sprite>
     <sprite>sprites\sprUmbrella</sprite>
+    <sprite>sprites\sprBull2Step</sprite>
+    <sprite>sprites\sprBullHold</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -23,6 +25,8 @@
     <object>objects\objEnemy</object>
     <object>objects\objBullet</object>
     <object>objects\objBullSpring</object>
+    <object>objects\objBull2Step</object>
+    <object>objects\objBullHold</object>
     <object>objects\objUmbrella</object>
   </objects>
   <rooms name="rooms">

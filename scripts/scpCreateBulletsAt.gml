@@ -3,8 +3,8 @@
 var xspawn =        argument[0];
 var yspawn =        argument[1];
 var dir =           argument[2];
-var numBullets =    argument[3]
-var type = objBullet; // argument[4]
+var numBullets =    argument[3];
+var type =  argument[4];
 
 var flip = 1;
 var delta = 0;

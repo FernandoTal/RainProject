@@ -37,6 +37,62 @@ if(!instance_exists(objUmbrella))
 {
     instance_create(umbrellaSafeX, umbrellaSafeY, objUmbrella); 
 }
+
+isImmune = true;
+drawImmune = true;
+xspawn = x;
+yspawn = y;
+alarm[0] = 30;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// respawn player
+
+instance_create(xspawn, yspawn, objPlayer);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Immune time
+
+isImmune = false;
 </string>
           </argument>
         </arguments>
@@ -102,6 +158,42 @@ else
 
 // check stage bounds
 scpCheckStageBounds();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw myself
+
+if(isImmune)
+{
+    drawImmune = !drawImmune;
+    if(drawImmune)
+    {        
+        draw_sprite(sprite_index, image_index, x, y);
+    }
+}
+else
+{
+    draw_sprite(sprite_index, image_index, x, y);
+}
 </string>
           </argument>
         </arguments>

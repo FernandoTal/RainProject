@@ -122,42 +122,43 @@ scpGetPlayerInput();
 x += horAxis * spd * (1-focus*0.7);
 y += verAxis * spd * (1-focus*0.7);
 
-if(reflectPressed)
-{
-    with(objUmbrella)
-    {
-        x = other.x;
-        y = other.y - other.sprite_yoffset - 2;
-    }
-}
-else
-{
-    with(objUmbrella)
-    {
-        x = other.umbrellaSafeX;
-        y = other.umbrellaSafeY;
-    }
-}
-
-if(reflectPressed)
-{
-    with(objUmbrella)
-    {
-        x = other.x;
-        y = other.y - other.sprite_yoffset - 2;
-    }
-}
-else
-{
-    with(objUmbrella)
-    {
-        x = other.umbrellaSafeX;
-        y = other.umbrellaSafeY;
-    }
-}
-
 // check stage bounds
 scpCheckStageBounds();
+
+if(reflectPressed)
+{
+    with(objUmbrella)
+    {
+        x = other.x;
+        y = other.y - other.sprite_yoffset - 2;
+    }
+}
+else
+{
+    with(objUmbrella)
+    {
+        x = other.umbrellaSafeX;
+        y = other.umbrellaSafeY;
+    }
+}
+
+if(reflectPressed)
+{
+    with(objUmbrella)
+    {
+        x = other.x;
+        y = other.y - other.sprite_yoffset - 2;
+    }
+}
+else
+{
+    with(objUmbrella)
+    {
+        x = other.umbrellaSafeX;
+        y = other.umbrellaSafeY;
+    }
+}
+
 </string>
           </argument>
         </arguments>

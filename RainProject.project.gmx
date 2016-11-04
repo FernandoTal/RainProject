@@ -13,6 +13,7 @@
     <sprite>sprites\sprUmbrella</sprite>
     <sprite>sprites\sprBull2Step</sprite>
     <sprite>sprites\sprBullHold</sprite>
+    <sprite>sprites\sprControl</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -29,6 +30,7 @@
     <object>objects\objBull2Step</object>
     <object>objects\objBullHold</object>
     <object>objects\objUmbrella</object>
+    <object>objects\objControl</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>

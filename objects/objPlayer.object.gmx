@@ -67,6 +67,7 @@ alarm[0] = 30;
             <kind>1</kind>
             <string>/// respawn player
 
+lives = lives - 1
 instance_create(xspawn, yspawn, objPlayer);
 </string>
           </argument>

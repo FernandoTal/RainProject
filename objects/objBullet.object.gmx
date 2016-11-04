@@ -84,8 +84,12 @@ y += ydir * spd;
             <string>/// Kill player
 
 if(!other.isImmune)
+{
     with(other)
+    {
         instance_destroy();
+    }
+}
 </string>
           </argument>
         </arguments>

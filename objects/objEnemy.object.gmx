@@ -102,12 +102,12 @@ if(alarm[0] &lt; 0)
     
     alarm[0] = spawnDelay;
 }
-if(alarm[0] = 15) //tiros no contra-tempo
+if(alarm[0] = 15) //shoots in counter-time
 {
     if(instance_exists(objPlayer))
     {
         var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
-        //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 25, 10, objBullHold); // O esquema depth como está deixa isso lindo!
+        //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 25, 10, objBullHold); // THe depth order of this one is cool!
         //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 25, 10, objBull2Step);
     }
 }

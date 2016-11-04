@@ -63,22 +63,22 @@ tick = 0
 x += xdir * spd;
 y += ydir * spd;
 
-// a idéia é o tiro ser ejetado, parar, esperar, e acelerar pra cima do player
+// the plan is to the shoot be ejected, stop, wait and home accelerating to the player
 
 if (spd &gt; 0 and timer &gt;0)
 {
     spd=spd - accel
 }
-if (spd &lt;= 0 and timer&gt;0) // tá bem podre aqui, não tenho certeza do elif do gm
+else if (spd &lt;= 0 and timer&gt;0)
 {
     timer = timer - 1
 }
 
-if (timer&lt;=0 and tick=0)
+else if (timer&lt;=0 and tick=0)
 {
     dir = point_direction(x, y, objPlayer.x, objPlayer.y)
-    xdir= lengthdir_x(1, dir)// a idéia é que fosse na direção do jogador, parecendo uma ampulheta o trajeto do conjunto
-    ydir= lengthdir_y(1, dir)// admito que não entendo o dir
+    xdir= lengthdir_x(1, dir)// dir is degrees, aimed to the east
+    ydir= lengthdir_y(1, dir)
     tick= 1
     spd=spd+accel
 }

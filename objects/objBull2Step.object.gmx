@@ -64,7 +64,7 @@ x += xdir * spd;
 y += ydir * spd;
 
 
-if (timer&gt;0) // check o objBullHold
+if (timer&gt;0) // check objBullHold
 {
     timer=timer-1
 }
@@ -73,7 +73,7 @@ if (timer&lt;=0 and tick=0)
 {
     dir = point_direction(x, y, objPlayer.x, objPlayer.y)
     xdir= lengthdir_x(1, dir)
-    ydir= lengthdir_y(1, dir)// admito que não entendo o dir
+    ydir= lengthdir_y(1, dir)
     tick= 1
     timer = 15
 }
@@ -82,7 +82,7 @@ if (timer&lt;=0 and tick=1)
 {
     dir = point_direction(x, y, objPlayer.x, objPlayer.y)
     xdir= 0
-    ydir= 1// admito que não entendo o dir
+    ydir= 1
     tick= 0
     timer = 1000
 }

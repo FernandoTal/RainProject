@@ -30,6 +30,9 @@ draw_set_color(c_red);
 
 score = 0;
 lives = 4;
+
+timeline_index=timTest
+timeline_running = true
 </string>
           </argument>
         </arguments>

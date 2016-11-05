@@ -36,6 +36,9 @@
       <object>objects\objEnemy0_2</object>
     </objects>
   </objects>
+  <timelines name="timelines">
+    <timeline>timelines\timTest</timeline>
+  </timelines>
   <rooms name="rooms">
     <room>rooms\room0</room>
   </rooms>

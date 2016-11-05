@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// set player variables
 
-spd = 10;
+spd = 8;
 focus = 1;
 
 umbrellaSafeX = -20;
@@ -42,7 +42,7 @@ isImmune = true;
 drawImmune = true;
 xspawn = x;
 yspawn = y;
-alarm[0] = 30;
+alarm[0] = 120;
 </string>
           </argument>
         </arguments>
@@ -126,8 +126,8 @@ isImmune = false;
 
 scpGetPlayerInput();
 
-x += horAxis * spd * (1-focus*0.7);
-y += verAxis * spd * (1-focus*0.7);
+x += horAxis * spd * (1-focus*0.8);
+y += verAxis * spd * (1-focus*0.8);
 
 // check stage bounds
 scpCheckStageBounds();

@@ -29,12 +29,12 @@
 
 event_inherited();
 
-accel = +0.5;
+accel = +0.25;
 
 xdir = 0;
 ydir = 1;
 
-timer = 15
+timer = 30
 tick = 0
 </string>
           </argument>

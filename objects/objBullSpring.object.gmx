@@ -29,7 +29,7 @@
 
 event_inherited();
 
-accel = -0.15;
+accel = -0.25;
 
 xdir = 0;
 ydir = 1;
@@ -62,41 +62,11 @@ reflected = false
 x += xdir * spd;
 y += ydir * spd;
 
-if (spd &gt; 1)
+if (spd &gt; 2)
 {
     spd = spd + accel;
 }
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="objEnemy">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Kill enemy
-if(reflected)
-    {
-    with(other)
-        {
-        instance_destroy();
-        }
-    }
 </string>
           </argument>
         </arguments>

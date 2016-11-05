@@ -34,6 +34,7 @@ yspawn = 30;
 
 xvel = 5;
 yvel = 0;
+hp = 1;
 
 alarm[0] = spawnDelay;
 </string>
@@ -95,7 +96,7 @@ if(alarm[0] &lt; 0)
     {
         var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
         //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 3, 3, objBullet);
-        scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 5, 15, objBullSpring);
+        scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 5, 10, objBullSpring);
         //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 1, 10, objBullHold);
 
     }

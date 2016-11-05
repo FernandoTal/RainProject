@@ -29,7 +29,7 @@
 draw_set_color(c_red);
 
 score = 0;
-lives = 4;
+lives = 99;
 
 timeline_index=timTest
 timeline_running = true

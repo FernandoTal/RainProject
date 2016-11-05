@@ -31,6 +31,10 @@
     <object>objects\objBullHold</object>
     <object>objects\objUmbrella</object>
     <object>objects\objControl</object>
+    <objects name="testEnemies">
+      <object>objects\objEnemy0_1</object>
+      <object>objects\objEnemy0_2</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>

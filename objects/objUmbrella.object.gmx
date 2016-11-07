@@ -29,6 +29,7 @@
 
 if(!other.reflected) 
 {
+    objPlayer.energyLeft -= 1;
     with(other)
     {
         ydir *= -1;
@@ -36,6 +37,11 @@ if(!other.reflected)
         reflected = true;
         sprite_index = sprPlayerBullet;
         behavior = scpFollowBehavior;
+    }
+    if(objPlayer.energyLeft &lt;= 0)
+    {
+        x = objPlayer.umbrellaSafeX;
+        y = objPlayer.umbrellaSafeY;
     }
 }
 </string>

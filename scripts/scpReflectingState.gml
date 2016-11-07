@@ -1,7 +1,5 @@
 /// scpReflectingState()
 
-energyLeft -= 1;
-
 with(objUmbrella)
 {
     x = other.x;

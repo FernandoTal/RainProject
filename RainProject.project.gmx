@@ -15,6 +15,8 @@
     <sprite>sprites\sprBullHold</sprite>
     <sprite>sprites\sprControl</sprite>
     <sprite>sprites\sprUmbrellaSwing</sprite>
+    <sprite>sprites\sprPlayerBullet</sprite>
+    <sprite>sprites\sprSwingCollision</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -22,6 +24,20 @@
     <script>scripts\scpGetPlayerInput.gml</script>
     <script>scripts\scpCheckStageBounds.gml</script>
     <script>scripts\scpCreateBulletsAt.gml</script>
+    <scripts name="PlayerStates">
+      <script>scripts\scpPlayerMove.gml</script>
+      <script>scripts\scpNullState.gml</script>
+      <script>scripts\scpReflectingState.gml</script>
+      <script>scripts\scpSwingState.gml</script>
+    </scripts>
+    <scripts name="BulletBehavior">
+      <script>scripts\scpFollowBehavior.gml</script>
+      <script>scripts\scpLinearMoveBehavior.gml</script>
+      <script>scripts\scpBullSpringBehavior.gml</script>
+      <script>scripts\scpBull2StepBehavior.gml</script>
+      <script>scripts\scpBullHoldBehavior.gml</script>
+    </scripts>
+    <script>scripts\scpCreateEnemyAt.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\objPlayer</object>
@@ -31,6 +47,7 @@
     <object>objects\objBull2Step</object>
     <object>objects\objBullHold</object>
     <object>objects\objUmbrella</object>
+    <object>objects\objSwing</object>
     <object>objects\objControl</object>
     <objects name="testEnemies">
       <object>objects\objEnemy0_1</object>

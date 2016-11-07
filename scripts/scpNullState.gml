@@ -1,0 +1,3 @@
+/// scpNullState()
+
+// do nothing

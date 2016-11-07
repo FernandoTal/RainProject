@@ -29,8 +29,14 @@
 
 if(!other.reflected) 
 {
-    other.ydir *= -1;
-    other.reflected = true;
+    with(other)
+    {
+        ydir *= -1;
+        spd = 2;
+        reflected = true;
+        sprite_index = sprPlayerBullet;
+        behavior = scpFollowBehavior;
+    }
 }
 </string>
           </argument>

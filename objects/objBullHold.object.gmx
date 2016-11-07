@@ -34,84 +34,10 @@ accel = +0.25;
 xdir = 0;
 ydir = 1;
 
-timer = 30
-tick = 0
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// move
+timer = 30;
+tick = 0;
 
-x += xdir * spd;
-y += ydir * spd;
-
-// the plan is to the shoot be ejected, stop, wait and home accelerating to the player
-
-if (spd &gt; 0 and timer &gt;0)
-{
-    spd=spd - accel
-}
-else if (spd &lt;= 0 and timer&gt;0)
-{
-    timer = timer - 1
-}
-
-else if (timer&lt;=0 and tick=0)
-{
-    dir = point_direction(x, y, objPlayer.x, objPlayer.y)
-    xdir= lengthdir_x(1, dir)// dir is degrees, aimed to the east
-    ydir= lengthdir_y(1, dir)
-    tick= 1
-    spd=spd+accel
-}
-
-if (timer&lt;=0 and tick=1)
-{
-    spd=spd + accel
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// die
-
-instance_destroy();
+behavior = scpBullHoldBehavior;
 </string>
           </argument>
         </arguments>

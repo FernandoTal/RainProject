@@ -27,11 +27,17 @@
             <kind>1</kind>
             <string>/// Set speed
 
+spd = 5;
+accel = 0;
 
 xdir = 0;
 ydir = 1;
 
 reflected = 0;
+
+target = 0;
+
+behavior = scpLinearMoveBehavior;
 </string>
           </argument>
         </arguments>
@@ -54,11 +60,9 @@ reflected = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// move
+            <string>/// Move
 
-x += xdir * spd;
-y += ydir * spd;
-
+script_execute(behavior);
 </string>
           </argument>
         </arguments>
@@ -83,17 +87,17 @@ y += ydir * spd;
             <kind>1</kind>
             <string>/// Kill enemy
 if(reflected)
-    {
+{
     with(other)
+    {
+        hp -= 1;
+        if(hp &lt;= 0)
         {
-        hp = hp -1
-        if hp &lt;= 0
-            {
             instance_destroy();
-            }
         }
-    instance_destroy();
     }
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>
@@ -118,7 +122,7 @@ if(reflected)
             <kind>1</kind>
             <string>/// Kill player
 
-if(!other.isImmune)
+if(!reflected &amp;&amp; !other.isImmune)
 {
     with(other)
     {

@@ -43,6 +43,8 @@ drawImmune = true;
 xspawn = x;
 yspawn = y;
 alarm[0] = 120;
+
+state = scpNullState;
 </string>
           </argument>
         </arguments>
@@ -126,46 +128,53 @@ isImmune = false;
 
 scpGetPlayerInput();
 
-x += horAxis * spd * (1-focus*0.8);
-y += verAxis * spd * (1-focus*0.8);
+scpPlayerMove();
 
-// check stage bounds
-scpCheckStageBounds();
-
-if(reflectPressed)
+if(state == scpNullState)
 {
-    with(objUmbrella)
+    if(reflectPressed)
     {
-        x = other.x;
-        y = other.y - other.sprite_yoffset - 2;
+        state = scpReflectingState;
     }
-}
-else
-{
-    with(objUmbrella)
+    
+    if(swingPressed)
     {
-        x = other.umbrellaSafeX;
-        y = other.umbrellaSafeY;
+        state = scpSwingState;
     }
 }
 
-if(reflectPressed)
-{
-    with(objUmbrella)
-    {
-        x = other.x;
-        y = other.y - other.sprite_yoffset - 2;
-    }
-}
-else
-{
-    with(objUmbrella)
-    {
-        x = other.umbrellaSafeX;
-        y = other.umbrellaSafeY;
-    }
-}
+script_execute(state);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Get back to normal sprite
 
+if(state == scpSwingState)
+{
+    sprite_index = sprPlayer;
+    image_index = 0;
+    image_speed = 0;
+    state = scpNullState;
+}
 </string>
           </argument>
         </arguments>

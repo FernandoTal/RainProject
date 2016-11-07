@@ -17,6 +17,7 @@
     <sprite>sprites\sprUmbrellaSwing</sprite>
     <sprite>sprites\sprPlayerBullet</sprite>
     <sprite>sprites\sprSwingCollision</sprite>
+    <sprite>sprites\sprPlayerCore</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>

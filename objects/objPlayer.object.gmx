@@ -44,6 +44,8 @@ xspawn = x;
 yspawn = y;
 alarm[0] = 120;
 
+energyLeft = 100;
+
 state = scpNullState;
 </string>
           </argument>
@@ -130,7 +132,7 @@ scpGetPlayerInput();
 
 scpPlayerMove();
 
-if(state == scpNullState)
+if(state == scpNullState &amp;&amp; energyLeft &gt; 0)
 {
     if(reflectPressed)
     {
@@ -205,12 +207,16 @@ if(isImmune)
     if(drawImmune)
     {        
         draw_sprite(sprite_index, image_index, x, y);
+        draw_sprite(sprPlayerCore, image_index, x, y);
     }
 }
 else
 {
     draw_sprite(sprite_index, image_index, x, y);
+    draw_sprite(sprPlayerCore, image_index, x, y);
 }
+
+draw_text(10, room_height - 30, "Cur energy: " + string(energyLeft));
 </string>
           </argument>
         </arguments>

@@ -120,13 +120,23 @@ if(reflected)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Kill player
+            <string>/// Graze or kill player
 
 if(!reflected &amp;&amp; !other.isImmune)
 {
-    with(other)
+    var oldMask = other.mask_index;
+    other.mask_index = sprPlayerCore;
+    if(place_meeting(x, y, other))
     {
-        instance_destroy();
+        with(other)
+        {
+            instance_destroy();
+        }
+    }
+    else
+    {
+        other.mask_index = oldMask;
+        other.energyLeft = clamp(other.energyLeft + 1, 0, 100); 
     }
 }
 </string>

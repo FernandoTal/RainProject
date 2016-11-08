@@ -1,0 +1,4 @@
+stage_ceiling=0
+stage_bottom=600
+stage_left=150
+stage_right=650

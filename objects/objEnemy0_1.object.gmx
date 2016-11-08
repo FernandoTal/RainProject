@@ -35,7 +35,7 @@ spawnDelay = 25;
 alarm[0] = spawnDelay
 
 
-xspawn = 0;
+xspawn = stage_left;
 yspawn = 30;
 hp = 1
 
@@ -90,6 +90,7 @@ yvel = 0;
 
 x += xvel;
 
+if x&gt;stage_right instance_destroy();
 
 if(alarm[0] = 0)
 {

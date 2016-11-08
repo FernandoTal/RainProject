@@ -62,6 +62,12 @@
   <rooms name="rooms">
     <room>rooms\room0</room>
   </rooms>
+  <constants number="4">
+    <constant name="stage_ceiling">0</constant>
+    <constant name="stage_bottom">600</constant>
+    <constant name="stage_left">150</constant>
+    <constant name="stage_right">650</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>

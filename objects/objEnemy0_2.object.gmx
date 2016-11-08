@@ -52,7 +52,7 @@
 
 x += xvel;
 
-
+if x&gt;stage_right instance_destroy();
 
 scpGetPlayerInput();
 

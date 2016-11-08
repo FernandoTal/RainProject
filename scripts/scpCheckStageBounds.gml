@@ -1,10 +1,10 @@
 /// scrCheckStageBounds()
 
-if(bbox_top < 0)
-    y = sprite_yoffset;
-if(bbox_bottom > room_height)
-    y = room_height - (sprite_height - sprite_yoffset);
-if(bbox_left < 0)
-    x = sprite_xoffset;
-if(bbox_right > room_width)
-    x = room_width - (sprite_width - sprite_xoffset);
+if(bbox_top < stage_ceiling)
+    y = stage_ceiling + sprite_yoffset;
+if(bbox_bottom > stage_bottom)
+    y = stage_bottom - (sprite_height - sprite_yoffset);
+if(bbox_left < stage_left)
+    x = stage_left + sprite_xoffset;
+if(bbox_right > stage_right)
+    x = stage_right - (sprite_width - sprite_xoffset);

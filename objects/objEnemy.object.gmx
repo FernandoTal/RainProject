@@ -29,7 +29,7 @@
 
 spawnDelay = 30;
 
-xspawn = 0;
+xspawn = stage_left + 30;
 yspawn = 30;
 
 xvel = 5;
@@ -85,8 +85,10 @@ alarm[0] = spawnDelay;
             <string>/// Move and shoot at player
 
 x += xvel;
-if(bbox_left &lt; 0 || bbox_right &gt; room_width)
+if(bbox_left &lt; stage_left || bbox_right &gt; stage_right)
+{
     xvel *= -1;
+}
 
 scpGetPlayerInput();
 

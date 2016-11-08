@@ -34,7 +34,7 @@ yspawn = 30;
 
 xvel = 5;
 yvel = 0;
-hp = 30
+hp = 150
 
 alarm[0] = spawnDelay;
 </string>
@@ -115,28 +115,80 @@ if(bbox_left &lt; 0 || bbox_right &gt; room_width)
 
 scpGetPlayerInput();
 
-if(alarm[0] &lt; 0)
+if (hp &gt; 100)
 {
-    if(instance_exists(objPlayer))
+    if(alarm[0] = 0)
     {
-        var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
-        scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 3, 3, objBullet);
-        //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 5, 10, objBullSpring);
-        scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 1, 10, objBullHold);
-
+        if(instance_exists(objPlayer))
+        {
+            var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
+            scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 3, 3, objBullet);
+        }
+        
+        alarm[0] = spawnDelay;
+    }
+    if(10&lt;alarm[0]/2) //timed bursts
+    {
+        if(instance_exists(objPlayer))
+        {
+            //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 25, 10, objBullHold); // THe depth order of this one is cool!
+            scpCreateBulletsAt(0, 500, 315, 5, 1, objBullet);
+        }
+    }
+    else //timed bursts
+    {
+        if(instance_exists(objPlayer))
+        {
+            //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 25, 10, objBullHold); // THe depth order of this one is cool!
+            scpCreateBulletsAt(room_width, 500, 225, 5, 1, objBullet);
+        }
     }
     
-    alarm[0] = spawnDelay;
 }
-if(alarm[0] = 15) //shoots in counter-time
+else if (hp &gt; 50)
 {
-    if(instance_exists(objPlayer))
+    if(alarm[0] = 0)
     {
-        var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
-        //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 25, 10, objBullHold); // THe depth order of this one is cool!
-        scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 25, 10, objBull2Step);
+        if(instance_exists(objPlayer))
+        {
+            var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
+            scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 3, 3, objBullet);
+            //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 5, 10, objBullSpring);
+            scpCreateBulletsAt(x, yspawn + y, 0, 1, 4, objBullHold);
+            scpCreateBulletsAt(x, yspawn + y, 180, 1, 4, objBullHold);
+    
+        }
+        
+        alarm[0] = spawnDelay;
+    }
+    if(alarm[0] = 15) //shoots in counter-time
+    {
+        if(instance_exists(objPlayer))
+        {
+            var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
+            //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 25, 10, objBullHold); // THe depth order of this one is cool!
+            scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 25, 10, objBull2Step);
+        }
     }
 }
+else
+{
+    if(alarm[0] &lt; 0)
+    {
+        if(instance_exists(objPlayer))
+        {
+            i = 20
+            while i != 0
+            {
+                scpCreateBulletsAt(random_range(0,room_height),0, 270, 1, 5, objBullSpring)
+                i = i -1
+            }
+        }
+    alarm[0] = spawnDelay;
+    }
+}
+
+    
 </string>
           </argument>
         </arguments>

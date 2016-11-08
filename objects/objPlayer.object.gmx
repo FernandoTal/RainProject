@@ -205,18 +205,24 @@ if(isImmune)
 {
     drawImmune = !drawImmune;
     if(drawImmune)
-    {        
-        draw_sprite(sprite_index, image_index, x, y);
+    {
+        draw_set_alpha(0.3); 
+        draw_sprite(sprite_index, image_index, x, y);//this still draws over
+        draw_set_alpha(1); //maybe there is other way to make it efficient
         draw_sprite(sprPlayerCore, image_index, x, y);
+        
     }
 }
 else
 {
+    draw_set_alpha(0.3);
     draw_sprite(sprite_index, image_index, x, y);
+    draw_set_alpha(1);
     draw_sprite(sprPlayerCore, image_index, x, y);
-}
 
-draw_text(10, room_height - 30, "Cur energy: " + string(energyLeft));
+}
+draw_set_color(c_fuchsia)
+draw_text(stage_left+10, stage_bottom - 30, "Energy drink: " + string(energyLeft)); //move to control?
 </string>
           </argument>
         </arguments>

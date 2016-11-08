@@ -55,7 +55,11 @@ timeline_running = true
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
+            <string>draw_set_color(c_black)
+draw_rectangle(0,0,stage_left,stage_bottom,false)
+draw_rectangle(stage_right,stage_ceiling,room_width,stage_bottom,false)
+
+draw_self();
 draw_text(x+10, y - 16, score);
 draw_text(x+10, y + 1, lives);
 </string>

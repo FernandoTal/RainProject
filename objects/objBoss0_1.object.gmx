@@ -117,6 +117,7 @@ scpGetPlayerInput();
 
 if (hp &gt; 100)
 {
+    spawnDelay = 100;
     if(alarm[0] = 0)
     {
         if(instance_exists(objPlayer))
@@ -127,12 +128,12 @@ if (hp &gt; 100)
         
         alarm[0] = spawnDelay;
     }
-    if(10&lt;alarm[0]/2) //timed bursts
+    if(50&lt;alarm[0]) //timed bursts
     {
         if(instance_exists(objPlayer))
         {
             //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 25, 10, objBullHold); // THe depth order of this one is cool!
-            scpCreateBulletsAt(0, 500, 315, 5, 1, objBullet);
+            scpCreateBulletsAt(0, room_height/2, 315, 5, 1, objBullet);
         }
     }
     else //timed bursts
@@ -140,13 +141,14 @@ if (hp &gt; 100)
         if(instance_exists(objPlayer))
         {
             //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 25, 10, objBullHold); // THe depth order of this one is cool!
-            scpCreateBulletsAt(room_width, 500, 225, 5, 1, objBullet);
+            scpCreateBulletsAt(room_width, room_height/2, 225, 5, 1, objBullet);
         }
     }
     
 }
 else if (hp &gt; 50)
 {
+    spawnDelay = 50;
     if(alarm[0] = 0)
     {
         if(instance_exists(objPlayer))
@@ -161,18 +163,19 @@ else if (hp &gt; 50)
         
         alarm[0] = spawnDelay;
     }
-    if(alarm[0] = 15) //shoots in counter-time
+    if(alarm[0] = 25) //shoots in counter-time
     {
         if(instance_exists(objPlayer))
         {
             var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
             //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 25, 10, objBullHold); // THe depth order of this one is cool!
-            scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 25, 10, objBull2Step);
+            scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 15, 10, objBull2Step);
         }
     }
 }
 else
 {
+    spawnDealy=40
     if(alarm[0] &lt; 0)
     {
         if(instance_exists(objPlayer))
@@ -180,7 +183,7 @@ else
             i = 20
             while i != 0
             {
-                scpCreateBulletsAt(random_range(0,room_height),0, 270, 1, 5, objBullSpring)
+                scpCreateBulletsAt(random_range(0,room_height),0, 270+random_range(-10,10), 1, 5, objBullSpring)
                 i = i -1
             }
         }

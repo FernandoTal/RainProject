@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// set player variables
 
-spd = 8;
+spd = 4;
 focus = 1;
 
 umbrellaSafeX = -20;

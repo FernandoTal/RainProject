@@ -207,15 +207,13 @@ if(isImmune)
     drawImmune = !drawImmune;
     if(drawImmune)
     {
-        if(state = scpSwingState)
-            draw_self();
+        draw_self();
         draw_sprite(sprPlayerCore, image_index, x, y);
     }
 }
 else
 {
-    if(state = scpSwingState)
-        draw_self();
+    draw_self();
     draw_sprite(sprPlayerCore, image_index, x, y);
 }
 draw_set_color(c_fuchsia)

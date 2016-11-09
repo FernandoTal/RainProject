@@ -34,7 +34,8 @@ yspawn = 30;
 
 xvel = 5;
 yvel = 0;
-hp = 150
+maxhp = 150;
+hp = maxhp;
 seg = 10
 
 alarm[0] = spawnDelay;
@@ -62,7 +63,7 @@ alarm[0] = spawnDelay;
             <kind>1</kind>
             <string>//End game (change to change level later)
 
-game_end()
+room_goto_next()
 </string>
           </argument>
         </arguments>
@@ -254,6 +255,34 @@ with(other)
             <string>/// Die
 
 instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw lifebar
+
+draw_sprite_ext(sprBossGaugeCenter, image_index, room_width/2 - 150, 32, hp/maxhp, 1, 0, c_white, 1);
+
+draw_sprite(sprBossGaugeOutline, image_index, room_width/2 - 150, 32);
+
 </string>
           </argument>
         </arguments>

@@ -58,6 +58,9 @@ selection = 0;
 
 var arrowPressed = (keyboard_check_pressed(vk_left) || keyboard_check_pressed(vk_right));
 var zPressed = keyboard_check_pressed(ord('Z'));
+var escPressed = keyboard_check_pressed(vk_escape);
+
+if(escPressed) game_end();
 
 if(arrowPressed)
 {
@@ -69,7 +72,7 @@ x = objEasyModeButton.x - 64 + (objHardModeButton.x - objEasyModeButton.x) * sel
 if(zPressed)
 {
     global.easyMode = !selection;
-    room_goto_next();
+    room_goto(room0);
 }
 </string>
           </argument>

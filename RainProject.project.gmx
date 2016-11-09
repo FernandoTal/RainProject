@@ -21,6 +21,9 @@
     <sprite>sprites\sprEasyModeButton</sprite>
     <sprite>sprites\scrHardModeButton</sprite>
     <sprite>sprites\sprSelection</sprite>
+    <sprite>sprites\sprGameOver</sprite>
+    <sprite>sprites\sprBossGaugeOutline</sprite>
+    <sprite>sprites\sprBossGaugeCenter</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -62,14 +65,16 @@
       <object>objects\objEasyModeButton</object>
       <object>objects\objHardModeButton</object>
       <object>objects\objSelection</object>
+      <object>objects\objGameOver</object>
     </objects>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\timTest</timeline>
   </timelines>
   <rooms name="rooms">
-    <room>rooms\SelectMode</room>
+    <room>rooms\rmSelectMode</room>
     <room>rooms\room0</room>
+    <room>rooms\rmGameOver</room>
   </rooms>
   <constants number="4">
     <constant name="stage_ceiling">0</constant>

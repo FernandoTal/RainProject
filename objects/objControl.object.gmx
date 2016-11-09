@@ -114,9 +114,9 @@ window_set_fullscreen(global.fullscreen);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// End game
+            <string>/// Go to menu
 
-game_end();
+room_goto(rmSelectMode);
 </string>
           </argument>
         </arguments>

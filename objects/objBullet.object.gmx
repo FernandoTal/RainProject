@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Set speed
+            <string>/// Set variables
 
 spd = 5;
 accel = 0;

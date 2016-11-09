@@ -62,7 +62,7 @@ if(alarm[0] = 0)
         i = 0
         while i &lt; 8
             {
-            scpCreateBulletsAt(x,y, i*45, 1, 8, objBullHold)
+            scpCreateBulletsAt(x,y, i*45, 1, 8, 0, objBullHold, -1)
             i=i+1
             }
     }

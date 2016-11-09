@@ -95,7 +95,8 @@ if x&gt;stage_right instance_destroy();
 if(alarm[0] = 0)
 {
         var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
-        scpCreateBulletsAt(x, yspawn + y, 270, 3, 10, 0, objBullSpring, c_white); //yspawn to shoot at the front
+        scpCreateBulletsAt(x, yspawn + y, 270, 3, 10, -0.25, objBullSpring, c_white); //yspawn to shoot at the front
+        alarm[0]= spawnDelay
 }
 </string>
           </argument>

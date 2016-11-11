@@ -1,0 +1,3 @@
+/// scpLinearMoveEnemy()
+
+x += xvel;

@@ -37,6 +37,8 @@ yvel = 0;
 hp = 1;
 
 alarm[0] = spawnDelay;
+
+//behavior = scpAntiLinearMoveEnemy();
 </string>
           </argument>
         </arguments>
@@ -84,11 +86,12 @@ alarm[0] = spawnDelay;
             <kind>1</kind>
             <string>/// Move and shoot at player
 
-x += xvel;
+/*x += xvel;
 if(bbox_left &lt; stage_left || bbox_right &gt; stage_right)
 {
     xvel *= -1;
 }
+*/
 
 scpGetPlayerInput();
 

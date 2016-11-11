@@ -25,6 +25,7 @@
     <script>scripts\scpGetPlayerInput.gml</script>
     <script>scripts\scpCheckStageBounds.gml</script>
     <script>scripts\scpCreateBulletsAt.gml</script>
+    <script>scripts\scpCreateEnemyAt.gml</script>
     <scripts name="PlayerStates">
       <script>scripts\scpPlayerMove.gml</script>
       <script>scripts\scpNullState.gml</script>
@@ -38,7 +39,11 @@
       <script>scripts\scpBull2StepBehavior.gml</script>
       <script>scripts\scpBullHoldBehavior.gml</script>
     </scripts>
-    <script>scripts\scpCreateEnemyAt.gml</script>
+    <scripts name="EnemyBehavior">
+      <script>scripts\scpLinearMoveEnemy.gml</script>
+      <script>scripts\scpAntiLinearMoveEnemy.gml</script>
+      <script>scripts\scpSineMoveEnemy.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\objPlayer</object>

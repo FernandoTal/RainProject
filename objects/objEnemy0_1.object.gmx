@@ -36,11 +36,14 @@ alarm[0] = spawnDelay
 
 
 xspawn = stage_left;
-yspawn = 30;
+//yspawn = 30;
+yspawn = y;
 hp = 1
 
 xvel = 3;
 yvel = 0;
+
+behavior = scpSineMoveEnemy;
 </string>
           </argument>
         </arguments>
@@ -88,7 +91,9 @@ yvel = 0;
             <kind>1</kind>
             <string>/// Move and shoot at player
 
-x += xvel;
+//x += xvel;
+
+script_execute(behavior);
 
 if x&gt;stage_right instance_destroy();
 

@@ -132,7 +132,7 @@ scpGetPlayerInput();
 
 scpPlayerMove();
 
-if(state == scpNullState &amp;&amp; energyLeft &gt; 0)
+if(state == scpNullState &amp;&amp; energyLeft &gt; 10)
 {
     if(reflectPressed)
     {
@@ -142,6 +142,7 @@ if(state == scpNullState &amp;&amp; energyLeft &gt; 0)
     if(swingPressed)
     {
         state = scpSwingState;
+        energyLeft -= 10;
     }
 }
 
@@ -206,23 +207,17 @@ if(isImmune)
     drawImmune = !drawImmune;
     if(drawImmune)
     {
-        draw_set_alpha(0.3); 
-        draw_sprite(sprite_index, image_index, x, y);//this still draws over
-        draw_set_alpha(1); //maybe there is other way to make it efficient
+        draw_self();
         draw_sprite(sprPlayerCore, image_index, x, y);
-        
     }
 }
 else
 {
-    draw_set_alpha(0.3);
-    draw_sprite(sprite_index, image_index, x, y);
-    draw_set_alpha(1);
+    draw_self();
     draw_sprite(sprPlayerCore, image_index, x, y);
-
 }
 draw_set_color(c_fuchsia)
-draw_text(stage_left+10, stage_bottom - 30, "Energy drink: " + string(energyLeft)); //move to control?
+draw_text(stage_left + 10, stage_bottom - 30, "Energy drink: " + string(energyLeft)); //move to control?
 </string>
           </argument>
         </arguments>

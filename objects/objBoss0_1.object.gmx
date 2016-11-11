@@ -34,7 +34,8 @@ yspawn = 30;
 
 xvel = 5;
 yvel = 0;
-hp = 150
+maxhp = 150;
+hp = maxhp;
 seg = 10
 
 alarm[0] = spawnDelay;
@@ -62,7 +63,7 @@ alarm[0] = spawnDelay;
             <kind>1</kind>
             <string>//End game (change to change level later)
 
-game_end()
+room_goto_next()
 </string>
           </argument>
         </arguments>
@@ -165,8 +166,10 @@ else if (hp &gt; 50)
             var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
             scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 3, 3, 0, objBullet, -1);
             //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 5, 10, objBullSpring);
-            scpCreateBulletsAt(x,y, 0, 1, 4, 0, objBullHold, -1);
-            scpCreateBulletsAt(x,y, 180, 1, 4, 0, objBullHold, -1);
+            scpCreateBulletsAt(x,y, 0, 1, 4, 0.25, objBullHold, -1);
+            scpCreateBulletsAt(x,y, 180, 1, 4, 0.25, objBullHold, -1);
+            // alternative, one bick pack
+            //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 25, 10, 0.25,objBullHold); // THe depth order of this one is cool!
     
         }
         
@@ -178,7 +181,7 @@ else if (hp &gt; 50)
         {
             var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
             //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 25, 10, objBullHold); // THe depth order of this one is cool!
-            scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 15, 10, 0, objBull2Step, -1);
+            scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 15, 8, -0.15, objBull2Step, -1);
         }
     }
 }
@@ -192,7 +195,7 @@ else
             i = 25
             while i != 0
             {
-                scpCreateBulletsAt(random_range(stage_left,stage_right),stage_ceiling, 270+random_range(-10,10), 1, 5, 0, objBullSpring, -1)
+                scpCreateBulletsAt(random_range(stage_left,stage_right),stage_ceiling, 270+random_range(-10,10), 1, 5, -0.25, objBullSpring, -1)
                 i = i -1
             }
         }
@@ -254,6 +257,34 @@ with(other)
             <string>/// Die
 
 instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw lifebar
+
+draw_sprite_ext(sprBossGaugeCenter, image_index, room_width/2 - 150, 32, hp/maxhp, 1, 0, c_white, 1);
+
+draw_sprite(sprBossGaugeOutline, image_index, room_width/2 - 150, 32);
+
 </string>
           </argument>
         </arguments>

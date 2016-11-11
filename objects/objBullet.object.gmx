@@ -35,7 +35,9 @@ ydir = 1;
 
 reflected = 0;
 
-target = 0;
+charged = true;
+
+target = noone;
 
 behavior = scpLinearMoveBehavior;
 </string>
@@ -126,6 +128,7 @@ if(!reflected &amp;&amp; !other.isImmune)
 {
     var oldMask = other.mask_index;
     other.mask_index = sprPlayerCore;
+    // check core collision
     if(place_meeting(x, y, other))
     {
         with(other)
@@ -133,11 +136,15 @@ if(!reflected &amp;&amp; !other.isImmune)
             instance_destroy();
         }
     }
-    else
+    else // graze
     {
-        other.mask_index = oldMask;
-        other.energyLeft = clamp(other.energyLeft + 1, 0, 100); 
+        if(charged)
+        {
+            other.energyLeft = clamp(other.energyLeft + 1, 0, 100); 
+            charged = false;
+        }
     }
+    other.mask_index = oldMask;
 }
 </string>
           </argument>

@@ -34,7 +34,7 @@ lives = 99;
 timeline_index=timTest
 timeline_running = true
 
-fullscreen = false;
+window_set_cursor(cr_none);
 </string>
           </argument>
         </arguments>
@@ -88,9 +88,10 @@ draw_text(x+10, y + 1, lives);
             <kind>1</kind>
             <string>/// Toggle fullscreen
 
-fullscreen = !fullscreen;
+global.fullscreen = !global.fullscreen;
 
-window_set_fullscreen(fullscreen);
+window_set_fullscreen(global.fullscreen);
+
 </string>
           </argument>
         </arguments>
@@ -113,13 +114,9 @@ window_set_fullscreen(fullscreen);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Exit fullscreen
+            <string>/// Go to menu
 
-if(fullscreen)
-{
-    fullscreen = false;
-    window_set_fullscreen(false);
-}
+room_goto(rmSelectMode);
 </string>
           </argument>
         </arguments>

@@ -43,7 +43,7 @@ hp = 1
 xvel = 3;
 yvel = 0;
 
-behavior = scpSineMoveEnemy;
+behavior = scpLinearMoveEnemy;
 </string>
           </argument>
         </arguments>

@@ -21,7 +21,12 @@
             <kind>1</kind>
             <string>// Continious wave test
 
-instance_create(stage_left-50, stage_ceiling+100, objEnemy0_1)
+//instance_create(stage_left-50, stage_ceiling+100, objEnemy0_1)
+
+scpCreateEnemyAt(stage_left-50, stage_ceiling+100, //Spawn Position x , y
+                3, 0, //Enemy speed in x , y
+                25, 25, //initialSpawnTime, spawnDelay
+                objEnemy0_1, scpSineMoveEnemy) //Type and Behavior
 </string>
           </argument>
         </arguments>

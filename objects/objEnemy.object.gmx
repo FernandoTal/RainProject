@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>/// Set bullet spawn timer
 
+initialSpawnTime = 30;
 spawnDelay = 30;
 
 xspawn = stage_left + 30;
@@ -36,7 +37,7 @@ xvel = 5;
 yvel = 0;
 hp = 1;
 
-alarm[0] = spawnDelay;
+alarm[0] = initialSpawnTime;
 
 //behavior = scpAntiLinearMoveEnemy();
 </string>

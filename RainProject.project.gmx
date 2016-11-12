@@ -64,6 +64,7 @@
     <objects name="testEnemies">
       <object>objects\objEnemy0_1</object>
       <object>objects\objEnemy0_2</object>
+      <object>objects\objEnemy0_3</object>
       <object>objects\objBoss0_1</object>
     </objects>
     <objects name="Menu">

@@ -26,16 +26,27 @@
           <argument>
             <kind>1</kind>
             <string>/// Set bullet spawn timer
+/*
+Enemy comes and shoot 3 Bullsprings to player's direction , then goes away
+*/
 
-spawnDelay = 30;
 
-xspawn = 0;
-yspawn = 30;
+spawnDelay = 25;
+alarm[0] = spawnDelay
 
-xvel = 5;
+
+xspawn = stage_left;
+//yspawn = 30;
+yspawn = y;
+hp = 1
+
+
+xvel = 3;
 yvel = 0;
 
-alarm[0] = spawnDelay;
+multiSpeed = 1 //affects the slowest and highest, and number of the chainbullets
+
+behavior = scpSineMoveEnemy;
 </string>
           </argument>
         </arguments>
@@ -83,87 +94,47 @@ alarm[0] = spawnDelay;
             <kind>1</kind>
             <string>/// Move and shoot at player
 
-x += xvel;
-if(bbox_left &lt; 0 || bbox_right &gt; room_width)
-    xvel *= -1;
+//x This enemy shoots a "chain" of bullets of the same type at the player, each with a diferrent speed
 
-scpGetPlayerInput();
+script_execute(behavior);
 
-if(alarm[0] &lt; 0)
+if x&gt;stage_right instance_destroy();
+
+if(alarm[0] = 0)
 {
-    if(instance_exists(objPlayer))
+    var dir = point_direction(x, y, objPlayer.x-15, objPlayer.y);
+    alarm[0]= spawnDelay
+    while multiSpeed &lt;11 //the number of bullets is determined by the difference between max value and min divided by step increase
     {
-        var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
-        //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 3, 3, objBullet);
-        scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 5, 15, objBullSpring);
-        //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 1, 10, objBullHold);
-
+        scpCreateBulletsAt(x, yspawn + y, 270, 3, multiSpeed, -0.25, objBullet, c_red); //yspawn to shoot at the front
+        multiSpeed = 1+ multiSpeed
     }
-    
-    alarm[0] = spawnDelay;
+    multiSpeed = 1
 }
-if(alarm[0] = 15) //shoots in counter-time
+
+else if (alarm[0] = 0)
 {
-    if(instance_exists(objPlayer))
+    var dir = point_direction(x, y, objPlayer.x+15, objPlayer.y);
+    alarm[0]= spawnDelay
+    while multiSpeed &lt;11
     {
-        var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
-        //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 25, 10, objBullHold); // THe depth order of this one is cool!
-        //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 25, 10, objBull2Step);
+        scpCreateBulletsAt(x, yspawn + y, 270, 3, multiSpeed, -0.25, objBullet, c_blue); //yspawn to shoot at the front
+        multiSpeed = 1+multiSpeed
     }
+    multiSpeed = 1
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="objPlayer">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Kills Player
 
-with(other)
+else if(alarm[0] = 0)
+{
+    var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
+    alarm[0]= spawnDelay
+    while i &lt;11
     {
-    instance_destroy();
+        scpCreateBulletsAt(x, yspawn + y, 270, 3, multiSpeed, -0.25, objBullet, c_purple); //yspawn to shoot at the front
+        multiSpeed = 1 + multiSpeed
     }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Die
-
-instance_destroy();
+    multiSpeed = 1
+}
 </string>
           </argument>
         </arguments>

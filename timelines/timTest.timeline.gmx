@@ -21,7 +21,7 @@
             <kind>1</kind>
             <string>// Continious wave test
 
-//instance_create(stage_left-50, stage_ceiling+100, objEnemy0_1)
+//instance_create(stage_left-50, stage_ceiling+100, objEnemy0_1) //equivalent
 
 scpCreateEnemyAt(stage_left-50, stage_ceiling+100, //Spawn Position x , y
                 3, 0, //Enemy speed in x , y
@@ -54,7 +54,10 @@ scpCreateEnemyAt(stage_left-50, stage_ceiling+100, //Spawn Position x , y
             <kind>1</kind>
             <string>// Continious wave test
 
-instance_create(stage_left-50, stage_ceiling+150, objEnemy0_1)
+scpCreateEnemyAt(stage_left-50, stage_ceiling+150, //Spawn Position x , y
+                3, 0, //Enemy speed in x , y
+                25, 25, //initialSpawnTime, spawnDelay
+                objEnemy0_1, scpSineMoveEnemy) //Type and Behavior
 </string>
           </argument>
         </arguments>
@@ -82,7 +85,10 @@ instance_create(stage_left-50, stage_ceiling+150, objEnemy0_1)
             <kind>1</kind>
             <string>// Continious wave test
 
-instance_create(stage_left-50, stage_ceiling+200, objEnemy0_1)
+scpCreateEnemyAt(stage_left-50, stage_ceiling+200, //Spawn Position x , y
+                3, 0, //Enemy speed in x , y
+                25, 25, //initialSpawnTime, spawnDelay
+                objEnemy0_1, scpSineMoveEnemy) //Type and Behavior)
 </string>
           </argument>
         </arguments>
@@ -110,7 +116,10 @@ instance_create(stage_left-50, stage_ceiling+200, objEnemy0_1)
             <kind>1</kind>
             <string>// Continious wave test
 
-instance_create(stage_left-50, stage_ceiling+250, objEnemy0_1)
+scpCreateEnemyAt(stage_left-50, stage_ceiling+250, //Spawn Position x , y
+                3, 0, //Enemy speed in x , y
+                25, 25, //initialSpawnTime, spawnDelay
+                objEnemy0_1, scpSineMoveEnemy) //Type and Behavior
 </string>
           </argument>
         </arguments>
@@ -138,7 +147,12 @@ instance_create(stage_left-50, stage_ceiling+250, objEnemy0_1)
             <kind>1</kind>
             <string>// Chainer Test
 
-instance_create(stage_left-50, stage_ceiling+200, objEnemy0_3)
+scpCreateEnemyAt(stage_left-50, stage_ceiling+100, //Spawn Position x , y
+                3, 0, //Enemy speed in x , y
+                250, 250, //initialSpawnTime, spawnDelay //
+                objEnemy0_3, scpSineMoveEnemy) //Type and Behavior
+                
+                //scpLinearMoveBehavior(
 </string>
           </argument>
         </arguments>
@@ -146,7 +160,7 @@ instance_create(stage_left-50, stage_ceiling+200, objEnemy0_3)
     </event>
   </entry>
   <entry>
-    <step>120</step>
+    <step>180</step>
     <event>
       <action>
         <libid>1</libid>
@@ -167,9 +181,9 @@ instance_create(stage_left-50, stage_ceiling+200, objEnemy0_3)
             <string>/// First wave, 3 Bullsprings, first test
 
 //create 3 enemies from the left
-instance_create(stage_left-50, stage_ceiling+100, objEnemy0_1)
-instance_create(stage_left-50, stage_ceiling+200, objEnemy0_1)
-instance_create(stage_left-50, stage_ceiling+300, objEnemy0_1)
+scpCreateEnemyAt(stage_right, stage_ceiling+100,-3, 0,25, 25,objEnemy0_1, scpSineMoveEnemy)
+scpCreateEnemyAt(stage_right, stage_ceiling+150,-3, 0,25, 25,objEnemy0_1, scpSineMoveEnemy)
+scpCreateEnemyAt(stage_right, stage_ceiling+200,-3, 0,25, 25,objEnemy0_1, scpSineMoveEnemy)
 </string>
           </argument>
         </arguments>
@@ -177,7 +191,7 @@ instance_create(stage_left-50, stage_ceiling+300, objEnemy0_1)
     </event>
   </entry>
   <entry>
-    <step>240</step>
+    <step>300</step>
     <event>
       <action>
         <libid>1</libid>
@@ -198,9 +212,9 @@ instance_create(stage_left-50, stage_ceiling+300, objEnemy0_1)
             <string>/// Second wave, 3 Bullholds
 
 //create 3 enemies from the left
-instance_create(stage_left-50, stage_ceiling+100, objEnemy0_2)
-instance_create(stage_left-50, stage_ceiling+200, objEnemy0_2)
-instance_create(stage_left-50, stage_ceiling+300, objEnemy0_2)
+scpCreateEnemyAt(stage_right, stage_ceiling+100,-3, 0,25, 25,objEnemy0_2, scpLinearMoveEnemy)
+scpCreateEnemyAt(stage_right, stage_ceiling+200,-3, 0,25, 25,objEnemy0_2, scpLinearMoveEnemy)
+scpCreateEnemyAt(stage_right, stage_ceiling+300,-3, 0,25, 25,objEnemy0_2, scpLinearMoveEnemy)
 </string>
           </argument>
         </arguments>
@@ -208,7 +222,7 @@ instance_create(stage_left-50, stage_ceiling+300, objEnemy0_2)
     </event>
   </entry>
   <entry>
-    <step>360</step>
+    <step>420</step>
     <event>
       <action>
         <libid>1</libid>
@@ -229,10 +243,11 @@ instance_create(stage_left-50, stage_ceiling+300, objEnemy0_2)
             <string>/// Tirdh wave, 2-2 mixed wave
 
 //create 4 enemies from the left
-instance_create(stage_left-50, stage_ceiling+100, objEnemy0_1)
-instance_create(stage_left-50, stage_ceiling+200, objEnemy0_2)
-instance_create(stage_left-50, stage_ceiling+300, objEnemy0_1)
-instance_create(stage_left-50, stage_ceiling+400, objEnemy0_2)
+
+scpCreateEnemyAt(stage_left-50, stage_ceiling+100,3, 0,25, 25,objEnemy0_1, scpSineMoveEnemy)
+scpCreateEnemyAt(stage_left-50, stage_ceiling+200,3, 0,25, 25,objEnemy0_2, scpLinearMoveEnemy)
+scpCreateEnemyAt(stage_right, stage_ceiling+300,-3, 0,25, 25,objEnemy0_1, scpSineMoveEnemy)
+scpCreateEnemyAt(stage_right, stage_ceiling+400,-3, 0,25, 25,objEnemy0_2, scpLinearMoveEnemy)
 </string>
           </argument>
         </arguments>
@@ -240,7 +255,7 @@ instance_create(stage_left-50, stage_ceiling+400, objEnemy0_2)
     </event>
   </entry>
   <entry>
-    <step>540</step>
+    <step>600</step>
     <event>
       <action>
         <libid>1</libid>
@@ -260,7 +275,7 @@ instance_create(stage_left-50, stage_ceiling+400, objEnemy0_2)
             <kind>1</kind>
             <string>/// Boss
 
-//create 4 enemies from the left
+//One boss to kill you all :)
 instance_create(stage_right/2, stage_ceiling+100, objBoss0_1)
 </string>
           </argument>

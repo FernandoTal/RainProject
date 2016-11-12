@@ -1,5 +1,5 @@
 /// scpCreateEnemyAt(x, y, xspeed, yspeed, initialSpawnTime, spawnDelay, type, [movementBehavior])
-
+// Original variables go FIRST, than comes those of the script
 var xspawn = argument[0];
 var yspawn = argument[1];
 var xspeed = argument[2];

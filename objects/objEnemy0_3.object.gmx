@@ -27,11 +27,12 @@
             <kind>1</kind>
             <string>/// Set bullet spawn timer
 /*
-Enemy comes and shoot 3 Bullsprings to player's direction , then goes away
+Chainer enemy, shoots 3 chains of shoots (a line of fast and slow bullets)
+Only one is aimed at the player, the other 2 are to the sides
 */
 
 
-spawnDelay = 25;
+spawnDelay = 120;
 alarm[0] = spawnDelay
 
 
@@ -102,36 +103,34 @@ if x&gt;stage_right instance_destroy();
 
 if(alarm[0] = 0)
 {
-    var dir = point_direction(x, y, objPlayer.x-15, objPlayer.y);
-    alarm[0]= spawnDelay
-    while multiSpeed &lt;11 //the number of bullets is determined by the difference between max value and min divided by step increase
+    var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
+    alarm[0] = 30
+    while multiSpeed &lt;6 //the number of bullets is determined by the difference between max value and min divided by step increase
     {
-        scpCreateBulletsAt(x, yspawn + y, 270, 3, multiSpeed, -0.25, objBullet, c_red); //yspawn to shoot at the front
-        multiSpeed = 1+ multiSpeed
+        scpCreateBulletsAt(x,y, dir, 1, multiSpeed, -0.25, objBullet, c_red); //yspawn to shoot at the front
+        multiSpeed = 0.5+ multiSpeed
     }
     multiSpeed = 1
 }
 
-else if (alarm[0] = 0)
+else if (alarm[0] = 30)
 {
     var dir = point_direction(x, y, objPlayer.x+15, objPlayer.y);
-    alarm[0]= spawnDelay
-    while multiSpeed &lt;11
+    while multiSpeed &lt;6
     {
-        scpCreateBulletsAt(x, yspawn + y, 270, 3, multiSpeed, -0.25, objBullet, c_blue); //yspawn to shoot at the front
-        multiSpeed = 1+multiSpeed
+        scpCreateBulletsAt(x,y, dir, 1, multiSpeed, -0.25, objBullet, c_green); //yspawn to shoot at the front
+        multiSpeed = 0.5+multiSpeed
     }
     multiSpeed = 1
 }
 
-else if(alarm[0] = 0)
+else if(alarm[0] = 60)
 {
     var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
-    alarm[0]= spawnDelay
-    while i &lt;11
+    while multiSpeed &lt;6
     {
-        scpCreateBulletsAt(x, yspawn + y, 270, 3, multiSpeed, -0.25, objBullet, c_purple); //yspawn to shoot at the front
-        multiSpeed = 1 + multiSpeed
+        scpCreateBulletsAt(x,y, dir, 1, multiSpeed, -0.25, objBullet, c_gray); //yspawn to shoot at the front // yspawn + can be usefull
+        multiSpeed = 0.5 + multiSpeed
     }
     multiSpeed = 1
 }

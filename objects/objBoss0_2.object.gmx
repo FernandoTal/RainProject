@@ -27,7 +27,10 @@
             <kind>1</kind>
             <string>/// Set bullet spawn timer
 
-spawnDelay = 40;
+//This boss follow a "infinite" movement and uses chain shoots
+// Difficult increses as it loses hp (3 stages)
+
+spawnDelay = 45;
 
 xspawn = 0;
 yspawn = 30;
@@ -39,6 +42,16 @@ hp = maxhp;
 seg = 10
 
 alarm[0] = spawnDelay;
+
+stage = 1 // level of difficulty
+multiSpeed = 0.3333 //inicial chain speed
+
+path_start(patTest,2,path_action_restart,true)
+
+with(objControl)
+{
+    timeline_running= false
+}
 </string>
           </argument>
         </arguments>
@@ -62,8 +75,14 @@ alarm[0] = spawnDelay;
           <argument>
             <kind>1</kind>
             <string>//End game (change to change level later)
-
-room_goto_next()
+with(objControl)
+{
+    timeline_running = true
+}
+with(objBullet)
+{
+    instance_destroy()
+}
 </string>
           </argument>
         </arguments>
@@ -117,93 +136,33 @@ if(bbox_left &lt; stage_left || bbox_right &gt; stage_right)
 
 scpGetPlayerInput();
 // Bullet patterns per heath level
+if(alarm[0] = 0)
+{
+    if(instance_exists(objPlayer))
+    {
+        var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
+        while multiSpeed &lt;5 //the number of bullets is determined by the difference between max value and min divided by step increase
+        {
+            scpCreateBulletsAt(x,y, dir, stage, multiSpeed*((300-hp)/150), 0, objBullet, make_colour_rgb(hp/150*255,hp/150*255,255)); //yspawn to shoot at the front
+            multiSpeed = 0.3333 + multiSpeed
+        }
+        multiSpeed = 0.3333 //reseting for next use
+    }
+alarm[0] = spawnDelay
+}
+
 if (hp &gt; 100)
 {
-    spawnDelay = 100;
-    if(alarm[0] = 0)
-    {
-        if(instance_exists(objPlayer))
-        {
-            var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
-            scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 3, 3, 0, objBullet, -1);
-        }
-        
-        alarm[0] = spawnDelay;
-        if seg&gt;1
-        {
-            seg = seg - 1
-        }
-        else
-        {
-            seg = 4
-        }
-    }
-    if(50&lt;alarm[0]) //timed bursts
-    {
-        if(instance_exists(objPlayer)) and 0=alarm[0]%10
-        {
-            //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 25, 10, objBullHold); // THe depth order of this one is cool!
-            scpCreateBulletsAt(stage_left, stage_bottom*seg/10, 315, 5, 1, 1, objBullet, c_yellow);
-        }
-    }
-    else //timed bursts
-    {
-        if(instance_exists(objPlayer)) and 0=alarm[0]%10
-        {
-            //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 25, 10, objBullHold); // THe depth order of this one is cool!
-            scpCreateBulletsAt(stage_right, stage_bottom*seg/10, 225, 5, 1, 1, objBullet, c_yellow);
-        }
-    }
-    
+    stage=1
 }
-else if (hp &gt; 50)
+else if (hp &gt;50)
 {
-    spawnDelay = 50;
-    if(alarm[0] = 0)
-    {
-        if(instance_exists(objPlayer))
-        {
-            var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
-            scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 3, 3, 0, objBullet, -1);
-            //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 5, 10, objBullSpring);
-            scpCreateBulletsAt(x,y, 0, 1, 4, 0.25, objBullHold, c_olive);
-            scpCreateBulletsAt(x,y, 180, 1, 4, 0.25, objBullHold, c_olive);
-            // alternative, one bick pack
-            //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 25, 10, 0.25,objBullHold); // THe depth order of this one is cool!
-    
-        }
-        
-        alarm[0] = spawnDelay;
-    }
-    if(alarm[0] = 25) //shoots in counter-time
-    {
-        if(instance_exists(objPlayer))
-        {
-            var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
-            //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 25, 10, objBullHold); // THe depth order of this one is cool!
-            scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 15, 8, -0.15, objBull2Step, make_colour_rgb(random_range(0,255),random_range(0,255),random_range(0,255)));
-        }
-    }
+    stage=2
 }
 else
 {
-    spawnDealy=30
-    if(alarm[0] &lt; 0)
-    {
-        if(instance_exists(objPlayer))
-        {
-            i = 25
-            while i != 0
-            {
-                scpCreateBulletsAt(random_range(stage_left,stage_right),stage_ceiling, 270+random_range(-10,10), 1, 5, -0.25, objBullSpring,make_colour_rgb(random_range(0,255),random_range(0,255),random_range(0,255)))
-                i = i -1
-            }
-        }
-    alarm[0] = spawnDelay;
-    }
+    stage=3
 }
-
-    
 </string>
           </argument>
         </arguments>

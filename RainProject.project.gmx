@@ -26,14 +26,16 @@
     <sprite>sprites\sprBossGaugeCenter</sprite>
   </sprites>
   <backgrounds name="background"/>
-  <paths name="paths"/>
+  <paths name="paths">
+    <path>paths\patTest</path>
+  </paths>
   <scripts name="scripts">
+    <script>scripts\scpGetPlayerInput.gml</script>
+    <script>scripts\scpCheckStageBounds.gml</script>
     <scripts name="CreateStuffAt">
       <script>scripts\scpCreateEnemyAt.gml</script>
       <script>scripts\scpCreateBulletsAt.gml</script>
     </scripts>
-    <script>scripts\scpGetPlayerInput.gml</script>
-    <script>scripts\scpCheckStageBounds.gml</script>
     <scripts name="PlayerStates">
       <script>scripts\scpPlayerMove.gml</script>
       <script>scripts\scpNullState.gml</script>
@@ -54,22 +56,23 @@
     </scripts>
   </scripts>
   <objects name="objects">
+    <object>objects\objPlayer</object>
+    <object>objects\objEnemy</object>
+    <object>objects\objUmbrella</object>
+    <object>objects\objSwing</object>
+    <object>objects\objControl</object>
     <objects name="Bullets">
       <object>objects\objBullet</object>
       <object>objects\objBullSpring</object>
       <object>objects\objBull2Step</object>
       <object>objects\objBullHold</object>
     </objects>
-    <object>objects\objPlayer</object>
-    <object>objects\objEnemy</object>
-    <object>objects\objUmbrella</object>
-    <object>objects\objSwing</object>
-    <object>objects\objControl</object>
     <objects name="testEnemies">
       <object>objects\objEnemy0_1</object>
       <object>objects\objEnemy0_2</object>
       <object>objects\objEnemy0_3</object>
       <object>objects\objBoss0_1</object>
+      <object>objects\objBoss0_2</object>
     </objects>
     <objects name="Menu">
       <object>objects\objEasyModeButton</object>

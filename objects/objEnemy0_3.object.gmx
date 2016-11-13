@@ -118,7 +118,7 @@ else if (alarm[0] = 30)
     var dir = point_direction(x, y, objPlayer.x+15, objPlayer.y);
     while multiSpeed &lt;6
     {
-        scpCreateBulletsAt(x,y, dir, 1, multiSpeed, -0.25, objBullet, c_green); //yspawn to shoot at the front
+        scpCreateBulletsAt(x,y, dir, 1, multiSpeed, -0.25, objBullet, c_yellow); //yspawn to shoot at the front
         multiSpeed = 0.5+multiSpeed
     }
     multiSpeed = 1
@@ -129,7 +129,7 @@ else if(alarm[0] = 60)
     var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
     while multiSpeed &lt;6
     {
-        scpCreateBulletsAt(x,y, dir, 1, multiSpeed, -0.25, objBullet, c_gray); //yspawn to shoot at the front // yspawn + can be usefull
+        scpCreateBulletsAt(x,y, dir, 1, multiSpeed, -0.25, objBullet, c_green); //yspawn to shoot at the front // yspawn + can be usefull
         multiSpeed = 0.5 + multiSpeed
     }
     multiSpeed = 1

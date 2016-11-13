@@ -181,7 +181,7 @@ else if (hp &gt; 50)
         {
             var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
             //scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 25, 10, objBullHold); // THe depth order of this one is cool!
-            scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 15, 8, -0.15, objBull2Step, -1);
+            scpCreateBulletsAt(xspawn + x, yspawn + y, dir, 15, 8, -0.15, objBull2Step, make_colour_rgb(random_range(0,255),random_range(0,255),random_range(0,255)));
         }
     }
 }
@@ -195,7 +195,7 @@ else
             i = 25
             while i != 0
             {
-                scpCreateBulletsAt(random_range(stage_left,stage_right),stage_ceiling, 270+random_range(-10,10), 1, 5, -0.25, objBullSpring, -1)
+                scpCreateBulletsAt(random_range(stage_left,stage_right),stage_ceiling, 270+random_range(-10,10), 1, 5, -0.25, objBullSpring,make_colour_rgb(random_range(0,255),random_range(0,255),random_range(0,255)))
                 i = i -1
             }
         }

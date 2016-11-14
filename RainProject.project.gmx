@@ -84,6 +84,9 @@
       <object>objects\objSelection</object>
       <object>objects\objGameOver</object>
     </objects>
+    <objects name="Talk">
+      <object>objects\tal0_1</object>
+    </objects>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\timTest</timeline>

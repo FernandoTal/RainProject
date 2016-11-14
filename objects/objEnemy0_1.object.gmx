@@ -38,7 +38,7 @@ alarm[0] = spawnDelay
 xspawn = stage_left;
 //yspawn = 30;
 yspawn = y;
-hp = 1
+hp = 2
 
 xvel = 3;
 yvel = 0;

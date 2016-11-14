@@ -3,7 +3,7 @@
   <spriteName>sprEnemy</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-10</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -35,7 +35,7 @@ yspawn = 30;
 
 xvel = 5;
 yvel = 0;
-hp = 1;
+hp = 2;
 
 alarm[0] = initialSpawnTime;
 

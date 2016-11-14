@@ -64,6 +64,14 @@ draw_rectangle(stage_right,stage_ceiling,room_width,stage_bottom,false)
 draw_self();
 draw_text(x+10, y - 16, score);
 draw_text(x+10, y + 1, lives);
+
+draw_set_color(c_red)
+draw_set_font(fonTeste1)
+draw_text(stage_left/2-50,y+100,"Dignidade")
+draw_text(stage_left/2-50,y+120,"perdida")
+draw_set_font(fonTeste2)
+draw_text(stage_left/2-25,y+140,99-lives)
+draw_set_font(fonTeste1)
 </string>
           </argument>
         </arguments>

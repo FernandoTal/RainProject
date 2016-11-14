@@ -57,7 +57,7 @@ selection = 0;
             <string>/// Get input and select dificult
 
 var arrowPressed = (keyboard_check_pressed(vk_left) || keyboard_check_pressed(vk_right));
-var zPressed = keyboard_check_pressed(ord('Z'));
+var zPressed = keyboard_check_pressed(vk_enter);//ord('Z') was before
 var escPressed = keyboard_check_pressed(vk_escape);
 
 if(escPressed) game_end();

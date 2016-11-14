@@ -39,7 +39,6 @@
     <scripts name="PlayerStates">
       <script>scripts\scpPlayerMove.gml</script>
       <script>scripts\scpNullState.gml</script>
-      <script>scripts\scpReflectingState.gml</script>
       <script>scripts\scpSwingState.gml</script>
     </scripts>
     <scripts name="BulletBehavior">
@@ -53,8 +52,13 @@
       <script>scripts\scpLinearMoveEnemy.gml</script>
       <script>scripts\scpAntiLinearMoveEnemy.gml</script>
       <script>scripts\scpSineMoveEnemy.gml</script>
+      <script>scripts\scpReflectingState.gml</script>
     </scripts>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fonTeste1</font>
+    <font>fonts\fonTeste2</font>
+  </fonts>
   <objects name="objects">
     <object>objects\objPlayer</object>
     <object>objects\objEnemy</object>

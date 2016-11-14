@@ -28,7 +28,7 @@
             <string>/// set player variables
 
 spd = 4;
-focus = 1;
+focus = 0;
 
 umbrellaSafeX = -20;
 umbrellaSafeY = -20;
@@ -44,7 +44,7 @@ xspawn = x;
 yspawn = y;
 alarm[0] = 120;
 
-energyLeft = 100;
+energyLeft = 30;
 
 state = scpNullState;
 </string>
@@ -75,7 +75,12 @@ lives = lives - 1;
 
 if (0=lives)
 {
-    room_restart()
+    room_goto_next()
+}
+
+with(objBullet)
+{
+    instance_destroy()
 }
 
 instance_create(xspawn, yspawn, objPlayer);
@@ -137,12 +142,13 @@ if(state == scpNullState &amp;&amp; energyLeft &gt; 10)
     if(reflectPressed)
     {
         state = scpReflectingState;
+        energyLeft -= 15
     }
     
     if(swingPressed)
     {
         state = scpSwingState;
-        energyLeft -= 10;
+        energyLeft -= 2;
     }
 }
 
@@ -202,18 +208,30 @@ if(state == scpSwingState)
             <kind>1</kind>
             <string>/// Draw myself
 
+// Observation: Objects draw with the last sets (configs.
+// put before on the whole program, draw.self go full vanilla!
+
+// the alpha change is to make the graze area transparent to facilitate dodges
+// A upgrade would be to change the draw depth to make bullets over it
+
 if(isImmune)
 {
     drawImmune = !drawImmune;
     if(drawImmune)
     {
-        draw_self();
+        //draw_set_alpha(0.5)
+        //draw_sprite(sprPlayer, image_index, x, y);
+        //draw_set_alpha(1)
+        draw_self()
         draw_sprite(sprPlayerCore, image_index, x, y);
     }
 }
 else
 {
-    draw_self();
+    //draw_set_alpha(0.5) //this puts transparency, but breaks the swing
+    //draw_sprite(sprPlayer, image_index, x, y);
+    //draw_set_alpha(1)
+    draw_self()
     draw_sprite(sprPlayerCore, image_index, x, y);
 }
 draw_set_color(c_fuchsia)

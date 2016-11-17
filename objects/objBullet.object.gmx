@@ -140,6 +140,7 @@ if(!reflected &amp;&amp; !other.isImmune)
     {
         if(charged)
         {
+            score= score +1
             other.energyLeft = clamp(other.energyLeft + 1, 0, 30); //max energy is 30 
             charged = false;
         }

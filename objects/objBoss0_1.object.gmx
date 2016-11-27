@@ -39,6 +39,11 @@ hp = maxhp;
 seg = 10
 
 alarm[0] = spawnDelay;
+
+with(objControl)
+{
+    timeline_running= false
+}
 </string>
           </argument>
         </arguments>
@@ -63,7 +68,10 @@ alarm[0] = spawnDelay;
             <kind>1</kind>
             <string>//End game (change to change level later)
 
-room_goto_next()
+with(objControl)
+{
+    timeline_running = true
+}
 </string>
           </argument>
         </arguments>

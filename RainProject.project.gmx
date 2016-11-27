@@ -65,6 +65,7 @@
     <object>objects\objUmbrella</object>
     <object>objects\objSwing</object>
     <object>objects\objControl</object>
+    <object>objects\objScoreRoll</object>
     <objects name="Bullets">
       <object>objects\objBullet</object>
       <object>objects\objBullSpring</object>
@@ -83,6 +84,7 @@
       <object>objects\objHardModeButton</object>
       <object>objects\objSelection</object>
       <object>objects\objGameOver</object>
+      <object>objects\obj_Instructions</object>
     </objects>
     <objects name="Talk">
       <object>objects\tal0_1</object>
@@ -96,11 +98,12 @@
     <room>rooms\room0</room>
     <room>rooms\rmGameOver</room>
   </rooms>
-  <constants number="4">
+  <constants number="5">
     <constant name="stage_ceiling">0</constant>
     <constant name="stage_bottom">600</constant>
     <constant name="stage_left">150</constant>
     <constant name="stage_right">650</constant>
+    <constant name="stage_horizon_center">(stage_right-stage_left)/2+stage_left</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

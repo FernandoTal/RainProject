@@ -71,6 +71,7 @@ with(objControl)
 with(objControl)
 {
     timeline_running = true
+    score = score + 300
 }
 </string>
           </argument>

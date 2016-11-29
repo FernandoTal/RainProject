@@ -30,22 +30,24 @@
 //This boss follow a "infinite" movement and uses chain shoots
 // Difficult increses as it loses hp (3 stages)
 
+//rate of fire
 spawnDelay = 45;
+alarm[0] = spawnDelay;
 
+//spawn location
 xspawn = 0;
 yspawn = 30;
 
-xvel = 5;
-yvel = 0;
 maxhp = 150;
 hp = maxhp;
 seg = 10
 
-alarm[0] = spawnDelay;
+
 
 stage = 1 // level of difficulty
 multiSpeed = 0.3333 //inicial chain speed
 
+//movement pattern
 path_start(patTest,2,path_action_restart,true)
 
 with(objControl)
@@ -78,11 +80,13 @@ with(objControl)
 with(objControl)
 {
     timeline_running = true
+    score = score = 100
 }
 with(objBullet)
 {
     instance_destroy()
 }
+instance_create(x,y,objBonusRefill)
 </string>
           </argument>
         </arguments>
@@ -128,11 +132,7 @@ with(objBullet)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Move and shoot at player
-//Movement
-x += xvel;
-if(bbox_left &lt; stage_left || bbox_right &gt; stage_right)
-    xvel *= -1;
+            <string>/// Move and shoot at player.
 
 scpGetPlayerInput();
 // Bullet patterns per heath level
@@ -143,10 +143,15 @@ if(alarm[0] = 0)
         var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
         while multiSpeed &lt;5 //the number of bullets is determined by the difference between max value and min divided by step increase
         {
-            scpCreateBulletsAt(x,y, dir, stage, multiSpeed*((300-hp)/150), 0, objBullet, make_colour_rgb(hp/150*255,hp/150*255,255)); //yspawn to shoot at the front
+            whiteness= (hp/150*255)/(6-multiSpeed) // 5 will have overflow that will affect the next bullets!(?)
+            scpCreateBulletsAt(x,y, dir, stage, multiSpeed*((300-hp)/150), 0, objBullet, make_colour_rgb(122,whiteness,255)); //yspawn to shoot at the front
             multiSpeed = 0.3333 + multiSpeed
         }
         multiSpeed = 0.3333 //reseting for next use
+        if stage &gt;1
+        {
+            scpCreateBulletsAt(x,y, dir,stage, 2.5, 0, objBonusStyle, make_colour_rgb(100,100,0)); 
+        }
     }
 alarm[0] = spawnDelay
 }

@@ -30,8 +30,19 @@ draw_set_color(c_red);
 
 score = 0;
 lives = 99;
+global.graze=0;
+global.style=1;
 
-timeline_index=timTest
+//choose timeline
+if 1=room //don't change the room order or it will bug!
+{
+    timeline_index=timTest
+}
+else
+{
+    timeline_index=timDangerRoom
+}
+
 timeline_running = true
 
 window_set_cursor(cr_none);
@@ -74,12 +85,32 @@ draw_text(x+10, y + 1, lives);
 draw_set_color(c_red)
 draw_set_font(fonTeste1)
 draw_set_halign(fa_center)
-draw_text(stage_left/2,y+100,"Dignidade")
-draw_text(stage_left/2,y+120,"perdida")
+draw_text(stage_left/2,y+100,"Dignidade#perdida")
 draw_set_font(fonTeste2)
 draw_text(stage_left/2,y+140,99-lives)
+
+//Draw graze
+draw_set_color(c_gray)
+draw_set_font(fonTeste1)
+draw_set_halign(fa_center)
+draw_text(stage_left/2,y+200,"Graze")
+draw_set_font(fonTeste2)
+draw_text(stage_left/2,y+220,global.graze)
+
+//Draw style
+
+draw_set_color(c_purple)
+draw_set_font(fonTeste1)
+draw_set_halign(fa_center)
+draw_text(stage_left/2,y+300,"Style")
+draw_set_font(fonTeste2)
+draw_text(stage_left/2,y+320,global.style)
+
+//Desetup
 draw_set_font(-1)
 draw_set_halign(fa_left)
+
+draw_text(0,300, string(room))
 </string>
           </argument>
         </arguments>

@@ -57,22 +57,53 @@ selection = 0;
             <string>/// Get input and select dificult
 
 var arrowPressed = (keyboard_check_pressed(vk_left) || keyboard_check_pressed(vk_right));
-var zPressed = keyboard_check_pressed(vk_enter);//ord('Z') was before
+var enterPressed = keyboard_check_pressed(vk_enter);//ord('Z') was before
 var escPressed = keyboard_check_pressed(vk_escape);
 
 if(escPressed) game_end();
 
 if(arrowPressed)
 {
-    selection = !selection;
+    selection = selection + 1
+    if selection &gt; 2 then selection = 0//loop back
+    if selection = 0
+    {
+    //x = objEasyModeButton.x - 64 + (objHardModeButton.x - objEasyModeButton.x) * selection;
+        x = objEasyModeButton.x - 64
+        y = objEasyModeButton.y
+    }
+    else if selection = 1
+    {
+        x = objHardModeButton.x - 64
+        y = objHardModeButton.y
+    }
+    else
+    {
+        x = objDangerModeButton.x - 64
+        y = objDangerModeButton.y
+    }
 }
 
-x = objEasyModeButton.x - 64 + (objHardModeButton.x - objEasyModeButton.x) * selection; 
 
-if(zPressed)
+
+
+if(enterPressed) //maybe a list with the room numbers would be better
 {
-    global.easyMode = !selection;
-    room_goto(room0);
+    if selection = 0
+    {
+        global.easyMode = 1;
+        room_goto(1);//Someone knows how to pick the index of a room?
+    }
+    if selection = 1
+    {
+        global.easyMode = 0;
+        room_goto(1);
+    }
+    if selection = 2
+    {
+        global.easyMode = 1;
+        room_goto(2);
+    }
 }
 </string>
           </argument>

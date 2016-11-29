@@ -118,13 +118,17 @@ if part &gt; 1
         draw_text(stage_horizon_center,115,"Por enquanto...")
         if part &gt; 3
             {
-            draw_text(stage_horizon_center,300,"Score:")
+            draw_text(stage_horizon_center,300,"Score:"+string(score))
             if part &gt; 4
                 {
-                    draw_text(stage_horizon_center,350,"Graze:")
+                    draw_text(stage_horizon_center,350,"Graze:"+string(global.graze))
                     if part &gt; 5
                     {
-                        draw_text(stage_horizon_center,400,"Dignidade perdida:#"+ "olha pro lado bobão")
+                        draw_text(stage_horizon_center,400,"Style:"+string(global.style))
+                        if part &gt; 6
+                        {
+                            draw_text(stage_horizon_center,450,"Dignidade perdida:#"+ "olha pro lado bobão")
+                        }
                     }
                 }
             }
@@ -132,7 +136,7 @@ if part &gt; 1
 }
 
 //Room change after 20 steps
-if part = 20 then room_goto_next()
+if part = 10 then room_goto_next()
 
 draw_set_halign(fa_left)
 draw_set_color(c_red)

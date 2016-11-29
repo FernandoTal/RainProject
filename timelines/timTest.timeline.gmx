@@ -19,7 +19,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Continious wave test
+            <string>/// Continious wave test
 
 //instance_create(stage_left-50, stage_ceiling+100, objEnemy0_1) //equivalent
 
@@ -52,7 +52,7 @@ scpCreateEnemyAt(stage_left-50, stage_ceiling+100, //Spawn Position x , y
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Continious wave test
+            <string>/// Continious wave test
 
 scpCreateEnemyAt(stage_left-50, stage_ceiling+150, //Spawn Position x , y
                 3, 0, //Enemy speed in x , y
@@ -83,7 +83,7 @@ scpCreateEnemyAt(stage_left-50, stage_ceiling+150, //Spawn Position x , y
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Continious wave test
+            <string>/// Continious wave test
 
 scpCreateEnemyAt(stage_left-50, stage_ceiling+200, //Spawn Position x , y
                 3, 0, //Enemy speed in x , y
@@ -114,7 +114,7 @@ scpCreateEnemyAt(stage_left-50, stage_ceiling+200, //Spawn Position x , y
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Continious wave test
+            <string>/// Continious wave test
 
 scpCreateEnemyAt(stage_left-50, stage_ceiling+250, //Spawn Position x , y
                 3, 0, //Enemy speed in x , y
@@ -145,7 +145,7 @@ scpCreateEnemyAt(stage_left-50, stage_ceiling+250, //Spawn Position x , y
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Chainer Test
+            <string>/// Chainer Test
 
 scpCreateEnemyAt(stage_left-50, stage_ceiling+100, //Spawn Position x , y
                 3, 0, //Enemy speed in x , y
@@ -273,7 +273,7 @@ scpCreateEnemyAt(stage_right, stage_ceiling+400,-3, 0,25, 25,objEnemy0_2, scpLin
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// creates the first dialog
+            <string>/// creates the first dialog
 instance_create(0,0,tal0_1)
 </string>
           </argument>

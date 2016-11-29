@@ -51,12 +51,11 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="objEasyModeButton" x="256" y="352" name="inst_D29797E9" locked="0" code="" scaleX="1.5" scaleY="1.5" colour="4294967295" rotation="0"/>
-    <instance objName="objHardModeButton" x="512" y="352" name="inst_A1C21126" locked="0" code="" scaleX="1.5" scaleY="1.5" colour="4294967295" rotation="0"/>
-    <instance objName="objSelection" x="192" y="352" name="inst_2536ECE4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGameOver" x="384" y="224" name="inst_88231A5F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objInstructions" x="0" y="0" name="inst_81140B35" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objDangerModeButton" x="384" y="448" name="inst_4A717C75" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objPlayer" x="400" y="530" name="inst_09ACF4B7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objControl" x="64" y="64" name="inst_7BD22670" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objBonus" x="384" y="384" name="inst_4725AF9D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objBonusStyle" x="448" y="384" name="inst_1B108314" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objBonusRefill" x="320" y="384" name="inst_6D9B27B6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

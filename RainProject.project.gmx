@@ -8,22 +8,31 @@
   <sprites name="sprites">
     <sprite>sprites\sprPlayer</sprite>
     <sprite>sprites\sprEnemy</sprite>
-    <sprite>sprites\sprBullet</sprite>
-    <sprite>sprites\sprBullSpring</sprite>
     <sprite>sprites\sprUmbrella</sprite>
-    <sprite>sprites\sprBull2Step</sprite>
-    <sprite>sprites\sprBullHold</sprite>
     <sprite>sprites\sprControl</sprite>
     <sprite>sprites\sprUmbrellaSwing</sprite>
-    <sprite>sprites\sprPlayerBullet</sprite>
     <sprite>sprites\sprSwingCollision</sprite>
     <sprite>sprites\sprPlayerCore</sprite>
-    <sprite>sprites\sprEasyModeButton</sprite>
-    <sprite>sprites\scrHardModeButton</sprite>
-    <sprite>sprites\sprSelection</sprite>
-    <sprite>sprites\sprGameOver</sprite>
     <sprite>sprites\sprBossGaugeOutline</sprite>
     <sprite>sprites\sprBossGaugeCenter</sprite>
+    <sprites name="Bullets">
+      <sprite>sprites\sprBullet</sprite>
+      <sprite>sprites\sprBullSpring</sprite>
+      <sprite>sprites\sprBull2Step</sprite>
+      <sprite>sprites\sprBullHold</sprite>
+      <sprite>sprites\sprPlayerBullet</sprite>
+    </sprites>
+    <sprites name="Bonus">
+      <sprite>sprites\sprBonusStyle</sprite>
+      <sprite>sprites\sprBonusRefill</sprite>
+    </sprites>
+    <sprites name="Menu">
+      <sprite>sprites\sprEasyModeButton</sprite>
+      <sprite>sprites\scrHardModeButton</sprite>
+      <sprite>sprites\scrDangerModeButton</sprite>
+      <sprite>sprites\sprSelection</sprite>
+      <sprite>sprites\sprGameOver</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths">
@@ -72,6 +81,11 @@
       <object>objects\objBull2Step</object>
       <object>objects\objBullHold</object>
     </objects>
+    <objects name="Bonus">
+      <object>objects\objBonus</object>
+      <object>objects\objBonusRefill</object>
+      <object>objects\objBonusStyle</object>
+    </objects>
     <objects name="testEnemies">
       <object>objects\objEnemy0_1</object>
       <object>objects\objEnemy0_2</object>
@@ -81,10 +95,11 @@
     </objects>
     <objects name="Menu">
       <object>objects\objEasyModeButton</object>
+      <object>objects\objDangerModeButton</object>
       <object>objects\objHardModeButton</object>
       <object>objects\objSelection</object>
       <object>objects\objGameOver</object>
-      <object>objects\obj_Instructions</object>
+      <object>objects\objInstructions</object>
     </objects>
     <objects name="Talk">
       <object>objects\tal0_1</object>
@@ -92,10 +107,14 @@
   </objects>
   <timelines name="timelines">
     <timeline>timelines\timTest</timeline>
+    <timeline>timelines\timDangerRoom</timeline>
   </timelines>
   <rooms name="rooms">
     <room>rooms\rmSelectMode</room>
-    <room>rooms\room0</room>
+    <rooms name="Levels">
+      <room>rooms\room0</room>
+      <room>rooms\rmDangerRoom</room>
+    </rooms>
     <room>rooms\rmGameOver</room>
   </rooms>
   <constants number="5">

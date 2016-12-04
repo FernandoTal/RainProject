@@ -32,6 +32,9 @@ global.fullscrceen = true;
 window_set_fullscreen(global.fullscrceen);
 
 selection = 0;
+selectMax = 2;
+moveSelector = false;
+idiot = false;
 </string>
           </argument>
         </arguments>
@@ -56,19 +59,40 @@ selection = 0;
             <kind>1</kind>
             <string>/// Get input and select dificult
 
-var arrowPressed = (keyboard_check_pressed(vk_left) || keyboard_check_pressed(vk_right));
+var arrowLeftPressed = keyboard_check_pressed(vk_left);
+var arrowRightPressed = keyboard_check_pressed(vk_right);
 var enterPressed = keyboard_check_pressed(vk_enter);//ord('Z') was before
 var escPressed = keyboard_check_pressed(vk_escape);
+idiot = false;
 
 if(escPressed) game_end();
 
-if(arrowPressed)
+//Selector control
+
+if (arrowRightPressed) and (arrowLeftPressed) //For funny people
+{
+    idiot = true
+}
+else if(arrowRightPressed)
 {
     selection = selection + 1
-    if selection &gt; 2 then selection = 0//loop back
+    if selection &gt; selectMax then selection = 0//loop back
+    moveSelector = true
+}
+else if (arrowLeftPressed) //This means right overwrites left
+{
+    selection = selection - 1
+    if selection &lt; 0 then selection = selectMax//loop back
+    moveSelector = true
+} 
+
+
+//Update the position of the selector
+if moveSelector = true
+{
+    //x = objEasyModeButton.x - 64 + (objHardModeButton.x - objEasyModeButton.x) * selection;
     if selection = 0
     {
-    //x = objEasyModeButton.x - 64 + (objHardModeButton.x - objEasyModeButton.x) * selection;
         x = objEasyModeButton.x - 64
         y = objEasyModeButton.y
     }
@@ -82,10 +106,11 @@ if(arrowPressed)
         x = objDangerModeButton.x - 64
         y = objDangerModeButton.y
     }
+    moveSelector = false
 }
 
 
-
+//button selection effects
 
 if(enterPressed) //maybe a list with the room numbers would be better
 {
@@ -105,6 +130,32 @@ if(enterPressed) //maybe a list with the room numbers would be better
         room_goto(2);
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw stuff, don't spy here, spoilers
+
+draw_self()
+if idiot = true then draw_text(0,0,"Pare de ser idiota!!!")
 </string>
           </argument>
         </arguments>

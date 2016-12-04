@@ -35,7 +35,7 @@
 */
 
 //boss testing
-instance_create(stage_right/2, stage_ceiling+100, objBoss0_2)
+//instance_create(stage_right/2, stage_ceiling+100, objBoss0_2)
 </string>
           </argument>
         </arguments>

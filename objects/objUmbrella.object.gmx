@@ -31,15 +31,14 @@ if(!other.reflected)
 {
     with(other)
     {
+        ydir *= -1;
+        reflected = true;
+        sprite_index = sprPlayerBullet;
         if(global.easyMode) 
         {
-            ydir *= -1;
             spd = 2;
-            reflected = true;
-            sprite_index = sprPlayerBullet;
             behavior = scpFollowBehavior;
         }
-        else instance_destroy();
     }
     if(instance_exists(objPlayer))
     {

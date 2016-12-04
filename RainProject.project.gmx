@@ -74,7 +74,6 @@
     <object>objects\objUmbrella</object>
     <object>objects\objSwing</object>
     <object>objects\objControl</object>
-    <object>objects\objScoreRoll</object>
     <objects name="Bullets">
       <object>objects\objBullet</object>
       <object>objects\objBullSpring</object>
@@ -85,8 +84,9 @@
       <object>objects\objBonus</object>
       <object>objects\objBonusRefill</object>
       <object>objects\objBonusStyle</object>
+      <object>objects\objBonusPoint</object>
     </objects>
-    <objects name="testEnemies">
+    <objects name="TestEnemies">
       <object>objects\objEnemy0_1</object>
       <object>objects\objEnemy0_2</object>
       <object>objects\objEnemy0_3</object>
@@ -104,6 +104,10 @@
     <objects name="Talk">
       <object>objects\tal0_1</object>
     </objects>
+    <objects name="Score">
+      <object>objects\objScoreRoll</object>
+      <object>objects\objHighScoreTable</object>
+    </objects>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\timTest</timeline>
@@ -112,7 +116,7 @@
   <rooms name="rooms">
     <room>rooms\rmSelectMode</room>
     <rooms name="Levels">
-      <room>rooms\room0</room>
+      <room>rooms\rmLevelTest</room>
       <room>rooms\rmDangerRoom</room>
     </rooms>
     <room>rooms\rmGameOver</room>

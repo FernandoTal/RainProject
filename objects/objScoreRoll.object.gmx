@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>//setup of variables
 
-part = 0
+part = 1
 alarm[0] = 90
 
 //for second version still in build
@@ -110,22 +110,22 @@ alarm[0] = 90
 draw_set_halign(fa_center)
 draw_set_color(c_white)
 
-if part &gt; 1
+if part &gt; 0
 {
-    draw_text(stage_horizon_center,95,"Você venceu!")
-    if part &gt; 2
+    draw_text(stage_horizon_center,95,"Você venceu!") //The actual part is the test + 1
+    if part &gt; 1
         {
         draw_text(stage_horizon_center,115,"Por enquanto...")
-        if part &gt; 3
+        if part &gt; 2
             {
             draw_text(stage_horizon_center,300,"Score:"+string(score))
-            if part &gt; 4
+            if part &gt; 3
                 {
                     draw_text(stage_horizon_center,350,"Graze:"+string(global.graze))
-                    if part &gt; 5
+                    if part &gt; 4
                     {
                         draw_text(stage_horizon_center,400,"Style:"+string(global.style))
-                        if part &gt; 6
+                        if part &gt; 5
                         {
                             draw_text(stage_horizon_center,450,"Dignidade perdida:#"+ "olha pro lado bobão")
                         }

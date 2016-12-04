@@ -56,6 +56,7 @@
     <instance objName="objSelection" x="192" y="288" name="inst_2536ECE4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objInstructions" x="0" y="0" name="inst_E78507A7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objDangerModeButton" x="256" y="416" name="inst_EB39DE9F" locked="0" code="" scaleX="1.5" scaleY="1.5" colour="4294967295" rotation="0"/>
+    <instance objName="objHighScoreButton" x="512" y="416" name="inst_C8ECDA7F" locked="0" code="" scaleX="1.5" scaleY="1.5" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -25,14 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//setup of variables
+            <string>///setup of variables
+
+//Obs: Score oll takes care of the full score roll inputs and 
+//Level progression, the level only ends when the score roll happens
 
 part = 1
 alarm[0] = 90
 
 //for second version still in build
 
-text = ""
+//text = ""
 
 </string>
           </argument>
@@ -135,9 +138,21 @@ if part &gt; 0
         }
 }
 
-//Room change after 20 steps
-if part = 10 then room_goto_next()
-
+//Room chang{e after 20 steps
+if part = 10
+{
+    //Save variables for the score roll
+    var index = global.levelNumber
+    global.dignityList[index] = 99-lives
+    global.pointsList[index] = score
+    global.grazeList[index] = global.graze
+    
+    //setup for the next level
+    global.levelNumber +=1
+    
+    //next room of doom!
+    room_goto_next()
+}
 draw_set_halign(fa_left)
 draw_set_color(c_red)
 

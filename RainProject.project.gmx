@@ -28,6 +28,7 @@
     </sprites>
     <sprites name="Menu">
       <sprite>sprites\sprEasyModeButton</sprite>
+      <sprite>sprites\sprHighScore</sprite>
       <sprite>sprites\scrHardModeButton</sprite>
       <sprite>sprites\scrDangerModeButton</sprite>
       <sprite>sprites\sprSelection</sprite>
@@ -63,6 +64,7 @@
       <script>scripts\scpSineMoveEnemy.gml</script>
       <script>scripts\scpReflectingState.gml</script>
     </scripts>
+    <script>scripts\scpStartSetup.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fonTeste1</font>
@@ -95,6 +97,7 @@
     </objects>
     <objects name="Menu">
       <object>objects\objEasyModeButton</object>
+      <object>objects\objHighScoreButton</object>
       <object>objects\objDangerModeButton</object>
       <object>objects\objHardModeButton</object>
       <object>objects\objSelection</object>
@@ -106,6 +109,7 @@
     </objects>
     <objects name="Score">
       <object>objects\objScoreRoll</object>
+      <object>objects\objScoreRollFull</object>
       <object>objects\objHighScoreTable</object>
     </objects>
   </objects>
@@ -119,14 +123,16 @@
       <room>rooms\rmLevelTest</room>
       <room>rooms\rmDangerRoom</room>
     </rooms>
+    <room>rooms\rmScoreRollFull</room>
     <room>rooms\rmGameOver</room>
   </rooms>
-  <constants number="5">
+  <constants number="6">
     <constant name="stage_ceiling">0</constant>
     <constant name="stage_bottom">600</constant>
     <constant name="stage_left">150</constant>
     <constant name="stage_right">650</constant>
     <constant name="stage_horizon_center">(stage_right-stage_left)/2+stage_left</constant>
+    <constant name="level_max">6</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

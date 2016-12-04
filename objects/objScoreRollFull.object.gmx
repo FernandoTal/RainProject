@@ -5,9 +5,175 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>objHighScoreTable</parentName>
   <maskName>&lt;undefined&gt;</maskName>
-  <events/>
+  <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Variable setup
+
+//Nothing for now, until I know how to load files
+
+//x positions of the score table
+levelColumn = 150
+dignityColumn = levelColumn + 200
+scoreColumn = dignityColumn + 200
+grazeColumn = scoreColumn + 100
+
+start = 100 // start position
+distance = 50 //bettewn rows
+
+// score rolling
+listLong = 1
+listMax = level_max //nível máximo
+alarm[0] = 60
+listEnd = false
+
+check = true//To make the adition one time only
+
+// Totals values
+global.dignityTotal = 0
+global.pointsTotal = 0
+global.grazeTotal = 0
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Go to high score table
+
+global.gameEnd=true
+room_goto(4)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Score roll timing
+
+alarm[0]=60
+check = true
+if listLong &lt;listMax then listLong = listLong + 1
+else if listEnd = false
+{
+    alarm[1] = 600
+    listEnd = true
+    alarm[0] = -1
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Full Run Results!!
+
+draw_set_halign(fa_center);
+draw_set_color(c_white);
+draw_text(stage_horizon_center,start - 50,"Sua odiséia");
+draw_text(levelColumn,start,"Fase")
+draw_text(dignityColumn,start,"Dignidade perdida")
+draw_text(scoreColumn,start,"Nakacoins")
+draw_text(grazeColumn,start,"Roçadas")
+
+// change later to archive access
+var place = 1
+while place &lt;= listLong
+{
+    draw_text(levelColumn,start +distance *place, place)
+    draw_text(dignityColumn,start +distance *place, global.dignityList[place])
+    draw_text(scoreColumn,start +distance *place, global.pointsList[place])
+    draw_text(grazeColumn,start +distance *place, global.grazeList[place])
+    place = place + 1
+}
+
+if check = true
+{
+    global.dignityTotal += global.dignityList[place-1]
+    global.pointsTotal += global.pointsList[place-1]
+    global.grazeTotal += global.grazeList[place-1]
+    check = false
+}
+
+
+draw_text(levelColumn,start +distance *place,"Total")
+draw_text(dignityColumn,start +distance *place, global.dignityTotal)
+draw_text(scoreColumn,start +distance *place, global.pointsTotal)
+draw_text(grazeColumn,start +distance *place, global.grazeTotal)
+
+draw_set_halign(fa_left);
+draw_set_color(c_red);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>0</PhysicsObjectShape>

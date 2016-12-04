@@ -34,6 +34,7 @@ global.graze=0;
 global.style=1;
 
 //choose timeline
+//Needs to add a system to choose the timeline from a array
 if 1=room //don't change the room order or it will bug!
 {
     timeline_index=timTest

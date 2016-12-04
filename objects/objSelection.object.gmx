@@ -32,9 +32,11 @@ global.fullscrceen = true;
 window_set_fullscreen(global.fullscrceen);
 
 selection = 0;
-selectMax = 2;
+selectMax = 3;
 moveSelector = false;
 idiot = false;
+
+global.gameEnd=false
 </string>
           </argument>
         </arguments>
@@ -101,10 +103,15 @@ if moveSelector = true
         x = objHardModeButton.x - 64
         y = objHardModeButton.y
     }
-    else
+    else if selection = 2
     {
         x = objDangerModeButton.x - 64
         y = objDangerModeButton.y
+    }
+    else
+    {
+        x = objHighScoreButton.x - 64
+        y = objHighScoreButton.y 
     }
     moveSelector = false
 }
@@ -117,17 +124,24 @@ if(enterPressed) //maybe a list with the room numbers would be better
     if selection = 0
     {
         global.easyMode = 1;
+        scpStartSetup()
         room_goto(1);//Someone knows how to pick the index of a room?
     }
-    if selection = 1
+    else if selection = 1
     {
         global.easyMode = 0;
+        scpStartSetup()
         room_goto(1);
     }
-    if selection = 2
+    else if selection = 2
     {
         global.easyMode = 1;
+        scpStartSetup()
         room_goto(2);
+    }
+    else if selection = 3
+    {
+        room_goto(4);
     }
 }
 </string>

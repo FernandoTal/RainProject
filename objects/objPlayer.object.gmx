@@ -213,8 +213,9 @@ if(state == scpSwingState)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(sprEnergyBarOutline, 0, stage_left + (stage_right - stage_left) + 40, room_height/2 + 128, 1, 1, 0, c_white, 1);
-draw_sprite_ext(sprEnergyBar, 0, stage_left + (stage_right - stage_left) + 40, room_height/2 + 127, 1, energyLeft/energyMax, 0, c_white, 1);
+            <string>draw_text(stage_left + (stage_right - stage_left) + 20, room_height/2 - 140, "Energy drink");
+draw_sprite_ext(sprEnergyBarOutline, 0, stage_left + (stage_right - stage_left) + 70, room_height/2 + 138, 1, 1, 0, c_white, 1);
+draw_sprite_ext(sprEnergyBar, 0, stage_left + (stage_right - stage_left) + 70, room_height/2 + 137, 1, energyLeft/energyMax, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

@@ -243,6 +243,8 @@ else
 }
 draw_set_color(c_fuchsia)
 draw_text(stage_left + 10, stage_bottom - 30, "Energy drink: " + string(energyLeft)); //move to control?
+
+draw_text(x, y, "image index: " + string(image_index));
 </string>
           </argument>
         </arguments>

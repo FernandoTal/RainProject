@@ -41,13 +41,8 @@
       <sprite>sprites\sprSelection</sprite>
       <sprite>sprites\sprGameOver</sprite>
     </sprites>
-<<<<<<< HEAD
-=======
     <sprite>sprites\sprEnergyBarOutline</sprite>
     <sprite>sprites\sprEnergyBar</sprite>
-    <sprite>sprites\sprBadCloud</sprite>
-    <sprite>sprites\sprBoss</sprite>
->>>>>>> b69700aa4a9b56d69231c0bfd2ab371bf1fdd351
   </sprites>
   <backgrounds name="background">
     <background>background\bck_sp</background>

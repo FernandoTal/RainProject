@@ -45,8 +45,8 @@ xspawn = x;
 yspawn = y;
 alarm[0] = 120;
 
-energyLeft = 30;
 energyMax = 30;
+energyLeft = energyMax;
 
 state = scpNullState;
 </string>
@@ -196,6 +196,31 @@ if(state == scpSwingState)
         </arguments>
       </action>
     </event>
+    <event eventtype="8" enumb="73">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_text(stage_left + (stage_right - stage_left) + 20, room_height/2 - 140, "Energy drink");
+draw_sprite_ext(sprEnergyBarOutline, 0, stage_left + (stage_right - stage_left) + 70, room_height/2 + 138, 1, 1, 0, c_white, 1);
+draw_sprite_ext(sprEnergyBar, 0, stage_left + (stage_right - stage_left) + 70, room_height/2 + 137, 1, energyLeft/energyMax, 0, c_white, 1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -241,10 +266,8 @@ else
     draw_self()
     draw_sprite(sprStudent, image_index, x, y);
 }
-draw_set_color(c_fuchsia)
-draw_text(stage_left + 10, stage_bottom - 30, "Energy drink: " + string(energyLeft)); //move to control?
 
-draw_text(x, y, "image index: " + string(image_index));
+
 </string>
           </argument>
         </arguments>

@@ -10,7 +10,8 @@
   <persistent>0</persistent>
   <colour>4194304</colour>
   <showcolour>-1</showcolour>
-  <code></code>
+  <code>audio_play_sound(sndBackgroundMusic, 128, true);
+audio_play_sound(sndRainMusic, 128, true);</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

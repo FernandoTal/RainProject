@@ -18,6 +18,9 @@
     <sprite>sprites\sprPlayerCore</sprite>
     <sprite>sprites\sprBossGaugeOutline</sprite>
     <sprite>sprites\sprBossGaugeCenter</sprite>
+    <sprite>sprites\sprStudent</sprite>
+    <sprite>sprites\sprBoss</sprite>
+    <sprite>sprites\sprBadCloud</sprite>
     <sprites name="Bullets">
       <sprite>sprites\spr_raindrop</sprite>
       <sprite>sprites\sprBullet</sprite>
@@ -38,8 +41,6 @@
       <sprite>sprites\sprSelection</sprite>
       <sprite>sprites\sprGameOver</sprite>
     </sprites>
-    <sprite>sprites\sprBadCloud</sprite>
-    <sprite>sprites\sprBoss</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_sp</background>

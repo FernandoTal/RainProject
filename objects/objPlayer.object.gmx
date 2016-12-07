@@ -230,7 +230,7 @@ if(isImmune)
         //draw_sprite(sprPlayer, image_index, x, y);
         //draw_set_alpha(1)
         draw_self()
-        draw_sprite(sprPlayerCore, image_index, x, y);
+        draw_sprite(sprStudent, image_index, x, y);
     }
 }
 else
@@ -239,7 +239,7 @@ else
     //draw_sprite(sprPlayer, image_index, x, y);
     //draw_set_alpha(1)
     draw_self()
-    draw_sprite(sprPlayerCore, image_index, x, y);
+    draw_sprite(sprStudent, image_index, x, y);
 }
 draw_set_color(c_fuchsia)
 draw_text(stage_left + 10, stage_bottom - 30, "Energy drink: " + string(energyLeft)); //move to control?

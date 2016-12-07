@@ -181,7 +181,7 @@ if alarm[0] = 0
             <kind>1</kind>
             <string>/// Draw text over stuff, the boss bofre his instance appears
 
-draw_sprite(sprEnemy,image_index,stage_left+stage_right/2, stage_ceiling+100)
+draw_sprite(sprBoss,image_index,stage_left+stage_right/2, stage_ceiling+100)
 if who = 0
     {
     draw_text(stage_left,stage_ceiling+120,text)

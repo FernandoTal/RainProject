@@ -38,6 +38,8 @@
       <sprite>sprites\sprSelection</sprite>
       <sprite>sprites\sprGameOver</sprite>
     </sprites>
+    <sprite>sprites\sprEnergyBarOutline</sprite>
+    <sprite>sprites\sprEnergyBar</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_sp</background>

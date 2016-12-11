@@ -201,7 +201,7 @@ while place &lt;= listLong
 {
     draw_text(nameColumn,start +distance *place,"Luan, o Construtor")
     draw_text(dignityColumn,start +distance *place, place *10)
-    draw_text(scoreColumn,start +distance *place,1000 -place *100)
+    draw_text(scoreColumn,start +distance *place,10000 -place *500)
     draw_text(grazeColumn,start +distance *place,500 -place *50)
     place = place + 1
 }

@@ -103,7 +103,7 @@ image_speed = 0.1;
 with(objControl)
 {
     timeline_running = true
-    score = score = 100
+    score = score + 100
 }
 with(objBullet)
 {

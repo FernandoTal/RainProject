@@ -40,7 +40,7 @@ distance = 50 //bettewn rows
 
 // score rolling
 listLong = 1
-listMax = level_max //nível máximo
+listMax = level_max //max level, macro
 alarm[0] = 60
 listEnd = false
 

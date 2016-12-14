@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///setup of variables
 
-//Obs: Score oll takes care of the full score roll inputs and 
+//Obs: Score roll takes care of the full score roll inputs and 
 //Level progression, the level only ends when the score roll happens
 
 part = 1
@@ -138,7 +138,7 @@ if part &gt; 0
         }
 }
 
-//Room chang{e after 20 steps
+//Room change
 if part = 10
 {
     //Save variables for the score roll

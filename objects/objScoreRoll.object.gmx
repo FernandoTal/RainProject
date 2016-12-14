@@ -30,12 +30,73 @@
 //Obs: Score roll takes care of the full score roll inputs and 
 //Level progression, the level only ends when the score roll happens
 
-part = 1
+part = 0
 alarm[0] = 90
+
+// Similar to the talking dialog, first number is progression, second are proprieties
+// 0 = text
+// 1 = horizontal place
+// 2 = vertical place
+
+talk[0,0]="Você venceu!"
+talk[0,1]=stage_horizon_center
+talk[0,2]=95
+talk[1,0]="Por enquanto..."
+talk[1,1]=stage_horizon_center
+talk[1,2]=115
+talk[2,0]="Score:"+string(score)
+talk[2,1]=stage_horizon_center
+talk[2,2]=300
+talk[3,0]="Graze:"+string(global.graze)
+talk[3,1]=stage_horizon_center
+talk[3,2]=350
+talk[4,0]="Style:"+string(global.style)
+talk[4,1]=stage_horizon_center
+talk[4,2]=400
+talk[5,0]="Dignidade perdida:#"+ "olha pro lado bobão"
+talk[5,1]=stage_horizon_center
+talk[5,2]=450
+
+partMax = array_height_2d(talk)
 
 //for second version still in build
 
 //text = ""
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Room change
+//Save variables for the score roll
+var index = global.levelNumber
+global.dignityList[index] = 99-lives
+global.pointsList[index] = score
+global.grazeList[index] = global.graze
+
+//setup for the next level
+global.levelNumber +=1
+    
+//next room of doom!
+room_goto_next()
 
 </string>
           </argument>
@@ -61,6 +122,31 @@ alarm[0] = 90
             <kind>1</kind>
             <string>alarm[0] = 90
 part = part + 1
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Decides what to be draw and room change
+
+if part = 10 then instance_destroy()
 </string>
           </argument>
         </arguments>
@@ -113,50 +199,15 @@ alarm[0] = 90
 draw_set_halign(fa_center)
 draw_set_color(c_white)
 
-if part &gt; 0
+i = 0
+while i &lt;= part and i&lt; partMax//something
 {
-    draw_text(stage_horizon_center,95,"Você venceu!") //The actual part is the test + 1
-    if part &gt; 1
-        {
-        draw_text(stage_horizon_center,115,"Por enquanto...")
-        if part &gt; 2
-            {
-            draw_text(stage_horizon_center,300,"Score:"+string(score))
-            if part &gt; 3
-                {
-                    draw_text(stage_horizon_center,350,"Graze:"+string(global.graze))
-                    if part &gt; 4
-                    {
-                        draw_text(stage_horizon_center,400,"Style:"+string(global.style))
-                        if part &gt; 5
-                        {
-                            draw_text(stage_horizon_center,450,"Dignidade perdida:#"+ "olha pro lado bobão")
-                        }
-                    }
-                }
-            }
-        }
+    draw_text(talk[i,1],talk[i,2],talk[i,0])
+    i = i + 1
 }
 
-//Room change
-if part = 10
-{
-    //Save variables for the score roll
-    var index = global.levelNumber
-    global.dignityList[index] = 99-lives
-    global.pointsList[index] = score
-    global.grazeList[index] = global.graze
-    
-    //setup for the next level
-    global.levelNumber +=1
-    
-    //next room of doom!
-    room_goto_next()
-}
 draw_set_halign(fa_left)
 draw_set_color(c_red)
-
-//change to a text variable who gets the parts added as time passes
 </string>
           </argument>
         </arguments>

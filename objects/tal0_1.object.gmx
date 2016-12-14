@@ -25,9 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Stops timeline
+            <string>/// Stops timeline and creates dialogue
 
-with(objControl)
+with(objLevelTest)
 {
     timeline_running= false
 }
@@ -37,6 +37,22 @@ who = 0 //player ou enemy is talking, sets text place
 part = 0 //part of the dialogue playing
 //0 = enemy
 //1 = player
+
+//first number is progression in the talking, second is for proprieties
+//seconds meaning
+//0 = text
+//1 = who (here 0 is boss, 1 is player)
+
+talk[0,0] = "Bem vindo a Huehou!"
+talk[0,1] = 0
+talk[1,0] = "Aí... e o que isso tem haver com o tema"
+talk[1,1] = 1
+talk[2,0] = "Os 4 criadores fizeram aqui em Sao Paulo, close enough!"
+talk[2,1] = 0
+talk[3,0] = "Aposto que fiz você desperdiçar um pouco de enrgia :D"
+talk[3,1] = 0
+
+large = array_height_2d(talk)
 
 wait= 180 //prevents the text going super fast
 alarm[0]= wait
@@ -66,7 +82,7 @@ alarm[0]= wait
             <kind>1</kind>
             <string>///Suicide and restart timeline
 
-with(objControl)
+with(objLevelTest)
 {
     timeline_running= true
 }
@@ -115,7 +131,7 @@ with(objControl)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// contains talking
+            <string>/// makes the talk roll
 //if keyboard_check_pressed(ord('V')) &amp;&amp; alarm[0]= 0
 //not working, I don't know why
 
@@ -126,37 +142,20 @@ if keyboard_check_pressed(vk_enter)
 
 
 if alarm[0] = 0
+{
+    part= part + 1
+    if part &lt; large
     {
-    if part=0
-        {
-        text = "Bem vindo a Huehou!"
-        who = 0
-        part = part + 1
-        }
-    else if part=1
-        {
-        text = "Aí... e o que isso tem haver com o tema"
-        who = 1
-        part = part + 1
-        }
-    else if part=2
-        {
-        text = "Os 4 criadores fizeram aqui em Sao Paulo, close enough!" //gm não aceita tios...
-        who = 0
-        part = part + 1
-        }
-    else if part=3
-        {
-        text = "Aposto que fiz você desperdiçar um pouco de enrgia :D"
-        who = 0
-        part = part + 1
-        }
+        text = talk[part,0]
+        who = talk[part,1]
+    }
     else // end of the line
         {
         instance_destroy()
         }
     alarm[0] = wait //resets the wait for the next one
-    }
+}
+
 </string>
           </argument>
         </arguments>
@@ -183,13 +182,13 @@ if alarm[0] = 0
 
 draw_sprite(sprBoss,image_index,stage_left+stage_right/2, stage_ceiling+100)
 if who = 0
-    {
+{
     draw_text(stage_left,stage_ceiling+120,text)
-    }
+}
 else
-    {
+{
     draw_text(stage_left,stage_ceiling+500,text)
-    }
+}
 </string>
           </argument>
         </arguments>

@@ -142,6 +142,10 @@
       <object>objects\objScoreRollFull</object>
       <object>objects\objHighScoreTable</object>
     </objects>
+    <objects name="Levels">
+      <object>objects\objLevelTest</object>
+      <object>objects\objDangerRoom</object>
+    </objects>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\timTest</timeline>

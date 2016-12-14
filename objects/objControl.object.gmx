@@ -25,9 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_halign(fa_left);
+            <string>///Variable setup and reset draw
+
+draw_set_halign(fa_left);
 draw_set_color(c_red);
 
+//All variables are global
 score = 0;
 lives = 99;
 global.graze=0;
@@ -35,16 +38,6 @@ global.style=1;
 
 //choose timeline
 //Needs to add a system to choose the timeline from a array
-if 1=room //don't change the room order or it will bug!
-{
-    timeline_index=timTest
-}
-else
-{
-    timeline_index=timDangerRoom
-}
-
-timeline_running = true
 
 window_set_cursor(cr_none);
 </string>

@@ -50,7 +50,7 @@ multiSpeed = 0.3333 //inicial chain speed
 //movement pattern
 path_start(patTest,2,path_action_restart,true)
 
-with(objControl)
+with(objLevelTest)
 {
     timeline_running= false
 }
@@ -100,11 +100,13 @@ image_speed = 0.1;
           <argument>
             <kind>1</kind>
             <string>//End game (change to change level later)
-with(objControl)
+with(objLevelTest)
 {
     timeline_running = true
-    score = score + 100
 }
+
+score = score + 100
+
 with(objBullet)
 {
     instance_destroy()

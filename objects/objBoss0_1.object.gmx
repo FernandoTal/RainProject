@@ -40,7 +40,7 @@ seg = 10
 
 alarm[0] = spawnDelay;
 
-with(objControl)
+with(objLevelTest)
 {
     timeline_running= false
 }
@@ -91,11 +91,12 @@ image_speed = 0.1;
             <kind>1</kind>
             <string>//End game (change to change level later)
 
-with(objControl)
+with(objLevelTest)
 {
     timeline_running = true
-    score = score + 300
 }
+
+score = score + 300
 </string>
           </argument>
         </arguments>
